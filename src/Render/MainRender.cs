@@ -25,6 +25,7 @@ public class MainRender
         while (!Raylib.WindowShouldClose())
         {
             Raylib.BeginDrawing();
+            Raylib.SetTargetFPS(60);
 
             Raylib.ClearBackground(Color.WHITE);
             board.Draw();
