@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Board" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game\Board.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.src.Game.CommunityLocation">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game\CommunityLocation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.src.Game.EventLocation">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game\EventLocation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="monoos.src.Game.Location">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAECAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game\Location.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.src.Game.Player" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.src.Game.StreetProperty">
+    <Position X="3" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game\StreetProperty.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="monoos.src.Render.BigSquareRender" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAABAIAAAAAAAAAA=</HashCode>
+      <FileName>src\Render\BigSquareRender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.src.Render.PropertyRender" Collapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Render\PropertyRender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.src.Render.Settings" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAAAAAAEBAAAAAGAAAAAAAAABAAAAAEAAAQAACAAA=</HashCode>
+      <FileName>src\Render\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.BoardRenderer" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QGigAAAAEAAQAgAAAAAAkBAgAQAAQAAAAAAAACAAAAA=</HashCode>
+      <FileName>src\Render\BoardRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.Game" Collapsed="true">
+    <Position X="13.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Render\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.MainRender" Collapsed="true">
+    <Position X="13.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAIAAAAIAIAAAAAAAAAA=</HashCode>
+      <FileName>src\Render\MainRender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.Program" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>src\Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.src.Game.PropertyLocation">
+    <Position X="3.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game\PropertyLocation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.src.Game.RailRoadProperty">
+    <Position X="5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game\RailRoadProperty.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="monoos.src.Game.IEvent" Collapsed="true">
+    <Position X="11.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game\IEvent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="monoos.src.Game.IProperty" Collapsed="true">
+    <Position X="10.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game\IProperty.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

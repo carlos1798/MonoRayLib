@@ -3,6 +3,7 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
+using monoos.src.Render;
 using Raylib_cs;
 
 namespace monoos;
@@ -108,24 +109,32 @@ public class BoardRenderer
         GoToJailSquare.RenderRec();
         StartSquare.RenderRec();
         JailSquare.RenderRec();
+        DrawTopLocations();
+        DrawBottomLocations();
+        DrawLeftLocations();
+        DrawRightLocations();
+    }
 
-        int test = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
-        int testresto = (roadBoard.width % 9) + (setting.OutlineSize / 2);
-        Console.WriteLine("Test:" + test);
-        Console.WriteLine("Testresto:" + testresto);
+    internal void SetBigSquaresParams()
+    {
+        //BoardRectangle fi = new BoardRectangle();
+    }
 
-        int NewPos = roadBoard.x + test + (setting.OutlineSize / 2);
+    internal void DrawTopLocations()
+    {
+        int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
+        int NewPos = roadBoard.x + propertyPos + (setting.OutlineSize / 2);
 
         for (int i = 1; i < 9; i++)
         {
             if (i == 4)
             {
-                test += 2;
+                propertyPos += 3;
             }
             {
-                new BoardRectangle(NewPos, mainBoard.y, test + setting.OutlineSize / 2, DivRoadWidth + setting.OutlineSize / 2, Color.WHITE, setting.OutlineSize).RenderRec();
+                new BoardRectangle(NewPos, roadBoard.y + roadBoard.height - setting.OutlineSize / 2, propertyPos + setting.OutlineSize / 2, DivRoadWidth + setting.OutlineSize / 2, Color.WHITE, setting.OutlineSize).RenderRec();
 
-                NewPos += test;
+                NewPos += propertyPos;
             }
 
             //   Raylib.DrawCircle(mainBoard.x + mainBoard.width, roadBoard.y + roadBoard.height + RoadWidth / 2, 5, Color.PURPLE);
@@ -133,8 +142,79 @@ public class BoardRenderer
         }
     }
 
-    internal void SetBigSquaresParams()
+    internal void DrawBottomLocations()
     {
-        //BoardRectangle fi = new BoardRectangle();
+        int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
+        int NewPos = roadBoard.x + propertyPos + (setting.OutlineSize / 2);
+
+        for (int i = 1; i < 9; i++)
+        {
+            if (i == 4)
+            {
+                propertyPos += 3;
+            }
+            {
+                new BoardRectangle(NewPos, mainBoard.y, propertyPos + setting.OutlineSize / 2, DivRoadWidth + setting.OutlineSize / 2, Color.WHITE, setting.OutlineSize).RenderRec();
+
+                NewPos += propertyPos;
+            }
+
+            //   Raylib.DrawCircle(mainBoard.x + mainBoard.width, roadBoard.y + roadBoard.height + RoadWidth / 2, 5, Color.PURPLE);
+            //   Raylib.DrawCircle(mainBoard.x + mainBoard.width, roadBoard.y + roadBoard.height, 5, Color.RED);
+        }
+    }
+
+    internal void DrawLeftLocations()
+    {
+        int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
+        int NewPos = roadBoard.y + propertyPos + (setting.OutlineSize / 2);
+
+        for (int i = 1; i < 9; i++)
+        {
+            if (i == 4)
+            {
+                propertyPos += 3;
+            }
+            {
+                new BoardRectangle(mainBoard.x,
+                                   NewPos,
+                                   DivRoadWidth + setting.OutlineSize / 2,
+                                   propertyPos + setting.OutlineSize / 2,
+                                   Color.WHITE,
+                                   setting.OutlineSize).RenderRec();
+
+                NewPos += propertyPos;
+            }
+
+            //   Raylib.DrawCircle(mainBoard.x + mainBoard.width, roadBoard.y + roadBoard.height + RoadWidth / 2, 5, Color.PURPLE);
+            //   Raylib.DrawCircle(mainBoard.x + mainBoard.width, roadBoard.y + roadBoard.height, 5, Color.RED);
+        }
+    }
+
+    internal void DrawRightLocations()
+    {
+        int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
+        int NewPos = roadBoard.y + propertyPos + (setting.OutlineSize / 2);
+
+        for (int i = 1; i < 9; i++)
+        {
+            if (i == 4)
+            {
+                propertyPos += 3;
+            }
+            {
+                new BoardRectangle(roadBoard.x + roadBoard.width - setting.OutlineSize / 2,
+                                   NewPos,
+                                   DivRoadWidth + setting.OutlineSize / 2,
+                                   propertyPos + setting.OutlineSize / 2,
+                                   Color.WHITE,
+                                   setting.OutlineSize).RenderRec();
+
+                NewPos += propertyPos;
+            }
+
+            //   Raylib.DrawCircle(mainBoard.x + mainBoard.width, roadBoard.y + roadBoard.height + RoadWidth / 2, 5, Color.PURPLE);
+            //   Raylib.DrawCircle(mainBoard.x + mainBoard.width, roadBoard.y + roadBoard.height, 5, Color.RED);
+        }
     }
 }

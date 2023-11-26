@@ -1,15 +1,15 @@
 ﻿using System.Reflection.Metadata;
+using monoos.src.Render;
 using Raylib_cs;
 
 namespace monoos;
 
-class Program
+internal class Program
 {
-    static void Main(string[] args)
+    private static void Main(string[] args)
     {
         Settings setting = new();
         MainRender main = new(setting);
         main.init();
-
     }
 }
