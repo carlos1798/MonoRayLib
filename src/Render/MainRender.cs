@@ -29,18 +29,15 @@ public class MainRender
 
     public void mainLoop()
     {
+        int rand = 0;
         while (!Raylib.WindowShouldClose())
         {
             Raylib.BeginDrawing();
-            Raylib.SetTargetFPS(30);
+            Raylib.SetTargetFPS(60);
 
             Raylib.ClearBackground(Color.WHITE);
             board.Draw();
 
-            foreach (KeyValuePair<int, BoardRenderer.BoardRectangle> square in board.Squares)
-            {
-                Raylib.DrawCircleV(new Vector2() { X = square.Value.x + square.Value.width / 2, Y = square.Value.y + square.Value.height / 2 }, 10, Color.GREEN);
-            }
             foreach (PlayerRender p in players)
             {
                 if (firstTime)
@@ -48,8 +45,17 @@ public class MainRender
                     p.GetPosition();
                     firstTime = false;
                 }
+                else
+                {
+                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
+                    {
+                        Random rnd = new();
+                        rand = rnd.Next(1, 12);
+                        p.TargetSquare += rand;
+                    }
 
-                p.TargetSquare = 30;
+                    Raylib.DrawText($"{rand}", 100, 100, 200, Color.BLUE);
+                }
                 p.GoToTargetSquare();
 
                 p.RenderPlayer();

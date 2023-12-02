@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,10 +15,11 @@ namespace monoos.src.Render
         private Settings settings;
         private BoardRenderer board;
 
-        public int CurrentSquare = 1;
-        public int TargetSquare = 1;
+        public int CurrentSquare = 0;
 
-        private Vector2 Speed = new() { X = 10, Y = 10 };
+        public int TargetSquare = 0;
+
+        private Vector2 Speed = new() { X = 5, Y = 5 };
 
         public Vector2 Position;
 
@@ -51,8 +53,8 @@ namespace monoos.src.Render
         public void MoveOneRight()
         {
             Vector2 newPosition = new Vector2() { X = board.Squares[CurrentSquare + 1].x + board.Squares[CurrentSquare + 1].width / 2, Y = board.Squares[CurrentSquare + 1].y + board.Squares[CurrentSquare + 1].width / 2 };
-
-            if (newPosition.X >= Position.X)
+            Raylib.DrawCircleV(newPosition, 11, Color.VIOLET);
+            if (newPosition.X <= Position.X)
             {
                 CurrentSquare += 1;
                 return;
@@ -63,8 +65,7 @@ namespace monoos.src.Render
         public void MoveOneUp()
         {
             Vector2 newPosition = new Vector2() { X = board.Squares[CurrentSquare + 1].x + board.Squares[CurrentSquare + 1].width / 2, Y = board.Squares[CurrentSquare + 1].y + board.Squares[CurrentSquare + 1].height / 2 };
-
-            Raylib.DrawCircleV(newPosition, 11, Color.BLACK);
+            Raylib.DrawCircleV(newPosition, 11, Color.BLUE);
             if (newPosition.Y >= Position.Y)
             {
                 CurrentSquare += 1;
@@ -75,36 +76,57 @@ namespace monoos.src.Render
 
         public void MoveOneDown()
         {
-            Vector2 newPosition = new Vector2() { X = board.Squares[CurrentSquare + 1].x + board.Squares[CurrentSquare + 1].width / 2, Y = board.Squares[CurrentSquare + 1].y + board.Squares[CurrentSquare + 1].width / 2 };
-            if (newPosition.Y >= Position.Y)
+            Vector2 newPosition = new Vector2() { X = board.Squares[CurrentSquare + 1].x + board.Squares[CurrentSquare + 1].width / 2, Y = board.Squares[CurrentSquare + 1].y + board.Squares[CurrentSquare + 1].height / 2 };
+
+            Raylib.DrawCircleV(newPosition, 11, Color.ORANGE);
+            if (newPosition.Y < Position.Y)
             {
                 CurrentSquare += 1;
                 return;
             }
-            Position = new Vector2() { X = Position.X, Y = Position.Y + Speed.Y };
+            Position.Y = Position.Y + Speed.Y;
         }
 
         public void GoToTargetSquare()
+
         {
             if (CurrentSquare != TargetSquare)
             {
-                if (CurrentSquare >= 9 && CurrentSquare < 18)
+                if (CurrentSquare >= 10 && CurrentSquare <= 19)
                 {
                     MoveOneUp();
                 }
-                else if (CurrentSquare <= 9)
+                else if (CurrentSquare <= 10)
                 {
                     MoveOneLeft();
                 }
-                else if (CurrentSquare >= 18 && CurrentSquare < 32)
+                else if (CurrentSquare >= 20 && CurrentSquare <= 29)
                 {
                     MoveOneRight();
                 }
-                else if (CurrentSquare >= 32 && CurrentSquare < 42)
+                else if (CurrentSquare >= 30 && CurrentSquare < 39)
                 {
                     MoveOneDown();
                 }
+
+                if (CurrentSquare == 39)
+                {
+                    GoToStart();
+                }
             }
+        }
+
+        public void GoToStart()
+        {
+            Vector2 newPosition = new Vector2() { X = board.Squares[1].x + board.Squares[1].width / 2, Y = board.Squares[1].y + board.Squares[1].height / 2 };
+
+            Raylib.DrawCircleV(newPosition, 11, Color.BLACK);
+            if (newPosition.Y < Position.Y)
+            {
+                CurrentSquare = 0;
+                return;
+            }
+            Position.Y = Position.Y + Speed.Y;
         }
     }
 }
