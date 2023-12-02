@@ -1,4 +1,5 @@
-﻿using monoos.src.Render;
+﻿using monoos.src.Game;
+using monoos.src.Render;
 using Raylib_cs;
 using System.Numerics;
 
@@ -10,6 +11,7 @@ public class MainRender
     private BoardRenderer board;
     private List<PlayerRender> players = new();
     private bool firstTime = true;
+    private Dices dices;
 
     public MainRender(Settings settings)
     {
@@ -20,8 +22,8 @@ public class MainRender
     public void init()
     {
         board.SetBoardParams();
+        dices = new(setting);
         players.Add(new(setting, board));
-
         Raylib.InitWindow(setting.ScreenWidth, setting.ScreenHeight, "Monooo");
 
         mainLoop();
@@ -29,7 +31,6 @@ public class MainRender
 
     public void mainLoop()
     {
-        int rand = 0;
         while (!Raylib.WindowShouldClose())
         {
             Raylib.BeginDrawing();
@@ -40,7 +41,8 @@ public class MainRender
 
             foreach (PlayerRender p in players)
             {
-                Raylib.DrawText($"CurrentSquare:{p.CurrentSquare}", 1200, 500, 20, Color.BLUE);
+                Raylib.DrawText($"Current Square:{p.CurrentSquare}", 1200, 500, 20, Color.BLUE);
+                Raylib.DrawText($"Dice  :{dices.DiceNumber1} Dice  : {dices.DiceNumber2}", 1200, 700, 20, Color.BLUE);
                 if (firstTime)
                 {
                     p.GetPosition();
@@ -50,12 +52,9 @@ public class MainRender
                 {
                     if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
                     {
-                        Random rnd = new();
-                        rand = rnd.Next(1, 12);
-                        p.TargetSquare += rand;
+                        dices.RollDices();
+                        p.SetDiceResult(dices.DiceNumber1 + dices.DiceNumber2);
                     }
-
-                    Raylib.DrawText($"{rand}", 100, 100, 200, Color.BLUE);
                 }
                 p.GoToTargetSquare();
 

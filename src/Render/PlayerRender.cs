@@ -13,15 +13,16 @@ namespace monoos.src.Render
     internal class PlayerRender
     {
         private Settings settings;
+        private const int MAX_SQUARES = 39;
         private BoardRenderer board;
 
         public int CurrentSquare = 0;
-
         public int TargetSquare = 0;
+        public int TargetCicles = 0;
 
         private Vector2 Speed = new() { X = 5, Y = 5 };
-
-        public Vector2 Position;
+        private Vector2 Position;
+        private Vector2 nextSquare;
 
         public PlayerRender(Settings settings, BoardRenderer board)
         {
@@ -39,10 +40,16 @@ namespace monoos.src.Render
             Position = new Vector2() { X = board.Squares[CurrentSquare].x + board.Squares[CurrentSquare].width / 2, Y = board.Squares[CurrentSquare].y + board.Squares[CurrentSquare].width / 2 };
         }
 
+        public void RefreshNextSquarePos()
+        {
+            nextSquare.X = board.Squares[CurrentSquare + 1].x + board.Squares[CurrentSquare + 1].width / 2;
+            nextSquare.Y = board.Squares[CurrentSquare + 1].y + board.Squares[CurrentSquare + 1].width / 2;
+        }
+
         public void MoveOneLeft()
         {
-            Vector2 newPosition = new Vector2() { X = board.Squares[CurrentSquare + 1].x + board.Squares[CurrentSquare + 1].width / 2, Y = board.Squares[CurrentSquare + 1].y + board.Squares[CurrentSquare + 1].width / 2 };
-            if (newPosition.X >= Position.X)
+            RefreshNextSquarePos();
+            if (nextSquare.X >= Position.X)
             {
                 CurrentSquare += 1;
                 return;
@@ -52,9 +59,8 @@ namespace monoos.src.Render
 
         public void MoveOneRight()
         {
-            Vector2 newPosition = new Vector2() { X = board.Squares[CurrentSquare + 1].x + board.Squares[CurrentSquare + 1].width / 2, Y = board.Squares[CurrentSquare + 1].y + board.Squares[CurrentSquare + 1].width / 2 };
-            Raylib.DrawCircleV(newPosition, 11, Color.VIOLET);
-            if (newPosition.X <= Position.X)
+            RefreshNextSquarePos();
+            if (nextSquare.X <= Position.X)
             {
                 CurrentSquare += 1;
                 return;
@@ -64,9 +70,8 @@ namespace monoos.src.Render
 
         public void MoveOneUp()
         {
-            Vector2 newPosition = new Vector2() { X = board.Squares[CurrentSquare + 1].x + board.Squares[CurrentSquare + 1].width / 2, Y = board.Squares[CurrentSquare + 1].y + board.Squares[CurrentSquare + 1].height / 2 };
-            Raylib.DrawCircleV(newPosition, 11, Color.BLUE);
-            if (newPosition.Y >= Position.Y)
+            RefreshNextSquarePos();
+            if (nextSquare.Y >= Position.Y)
             {
                 CurrentSquare += 1;
                 return;
@@ -76,10 +81,8 @@ namespace monoos.src.Render
 
         public void MoveOneDown()
         {
-            Vector2 newPosition = new Vector2() { X = board.Squares[CurrentSquare + 1].x + board.Squares[CurrentSquare + 1].width / 2, Y = board.Squares[CurrentSquare + 1].y + board.Squares[CurrentSquare + 1].height / 2 };
-
-            Raylib.DrawCircleV(newPosition, 11, Color.ORANGE);
-            if (newPosition.Y < Position.Y)
+            RefreshNextSquarePos();
+            if (nextSquare.Y < Position.Y)
             {
                 CurrentSquare += 1;
                 return;
@@ -90,7 +93,7 @@ namespace monoos.src.Render
         public void GoToTargetSquare()
 
         {
-            if (CurrentSquare != TargetSquare)
+            if (CurrentSquare != TargetSquare )
             {
                 if (CurrentSquare >= 10 && CurrentSquare <= 19)
                 {
@@ -112,6 +115,10 @@ namespace monoos.src.Render
                 if (CurrentSquare == 39)
                 {
                     GoToStart();
+                    if (TargetCicles != 0)
+                    {
+                        TargetCicles--;
+                    }
                 }
             }
         }
@@ -127,6 +134,19 @@ namespace monoos.src.Render
                 return;
             }
             Position.Y = Position.Y + Speed.Y;
+        }
+
+        public void SetDiceResult(int diceResult)
+        {
+            if (diceResult + CurrentSquare > MAX_SQUARES)
+            {
+                TargetSquare = CurrentSquare + diceResult - MAX_SQUARES;
+            }
+            else
+            {
+                TargetSquare = CurrentSquare + diceResult;
+
+            }
         }
     }
 }
