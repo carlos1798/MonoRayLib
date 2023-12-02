@@ -27,6 +27,7 @@ public class BoardRenderer
     public BoardRectangle GoToJailSquare;
     public BoardRectangle StartSquare;
     public BoardRectangle JailSquare;
+    public Dictionary<int, BoardRectangle> Squares = new();
 
     public record BoardRectangle(int x, int y, int width, int height, Color color, int Outline = 0)
     {
@@ -57,70 +58,71 @@ public class BoardRenderer
         BoardPosY = setting.CenterY - BoardHeight / 2;
 
         mainBoard = new(BoardPosX,
-                        BoardPosY,
-                        BoardWidth,
-                        BoardHeight,
-                        Color.WHITE,
-                        setting.OutlineSize);
+                       BoardPosY,
+                       BoardWidth,
+                       BoardHeight,
+                       Color.WHITE,
+                       setting.OutlineSize);
 
         roadBoard = new(mainBoard.x + DivRoadWidth,
-                        mainBoard.y + DivRoadWidth,
-                        mainBoard.width - RoadWidth,
-                        mainBoard.height - RoadWidth,
-                        Color.YELLOW,
-                        setting.OutlineSize);
+                              mainBoard.y + DivRoadWidth,
+                              mainBoard.width - RoadWidth,
+                              mainBoard.height - RoadWidth,
+                              Color.YELLOW,
+                              setting.OutlineSize);
 
-        ParkingSquare = new(mainBoard.x,
-                            mainBoard.y,
-                            DivRoadWidth + setting.OutlineSize / 2,
-                            DivRoadWidth + setting.OutlineSize / 2,
-                            Color.LIME,
-                            setting.OutlineSize);
+        Squares.Add(31, ParkingSquare = new(mainBoard.x,
+                              mainBoard.y,
+                              DivRoadWidth + setting.OutlineSize / 2,
+                              DivRoadWidth + setting.OutlineSize / 2,
+                              Color.LIME,
+                              setting.OutlineSize));
 
-        GoToJailSquare = new(roadBoard.x + roadBoard.width - setting.OutlineSize / 2,
-                             mainBoard.y,
-                             DivRoadWidth + setting.OutlineSize / 2,
-                             DivRoadWidth + setting.OutlineSize / 2,
-                             Color.RED,
-                             setting.OutlineSize);
+        Squares.Add(21, GoToJailSquare = new(roadBoard.x + roadBoard.width - setting.OutlineSize / 2,
+                              mainBoard.y,
+                              DivRoadWidth + setting.OutlineSize / 2,
+                              DivRoadWidth + setting.OutlineSize / 2,
+                              Color.RED,
+                              setting.OutlineSize));
 
-        StartSquare = new(roadBoard.x + roadBoard.width - setting.OutlineSize / 2,
-                             roadBoard.y + roadBoard.height - setting.OutlineSize / 2,
-                             DivRoadWidth + setting.OutlineSize / 2,
-                             DivRoadWidth + setting.OutlineSize / 2,
-                             Color.BLUE,
-                             setting.OutlineSize);
-        JailSquare = new(mainBoard.x,
-                            roadBoard.y + roadBoard.height - setting.OutlineSize / 2,
-                            DivRoadWidth + setting.OutlineSize / 2,
-                            DivRoadWidth + setting.OutlineSize / 2,
-                            Color.ORANGE,
-                            setting.OutlineSize);
+        Squares.Add(1, StartSquare = new(roadBoard.x + roadBoard.width - setting.OutlineSize / 2,
+                                    roadBoard.y + roadBoard.height - setting.OutlineSize / 2,
+                                    DivRoadWidth + setting.OutlineSize / 2,
+                                    DivRoadWidth + setting.OutlineSize / 2,
+                                    Color.BLUE,
+                                    setting.OutlineSize));
+        Squares.Add(11, JailSquare = new(mainBoard.x,
+                              roadBoard.y + roadBoard.height - setting.OutlineSize / 2,
+                              DivRoadWidth + setting.OutlineSize / 2,
+                              DivRoadWidth + setting.OutlineSize / 2,
+                              Color.ORANGE,
+                              setting.OutlineSize));
+
+        CalculateAllSquares();
     }
 
     internal void Draw()
     {
-        SetBoardParams();
-
         mainBoard.RenderRec();
-
         roadBoard.RenderRec();
-        ParkingSquare.RenderRec();
-        GoToJailSquare.RenderRec();
-        StartSquare.RenderRec();
-        JailSquare.RenderRec();
-        DrawTopLocations();
-        DrawBottomLocations();
-        DrawLeftLocations();
-        DrawRightLocations();
+
+        foreach (KeyValuePair<int, BoardRectangle> Square in Squares)
+        {
+            {
+                Square.Value.RenderRec();
+            }
+        }
     }
 
-    internal void SetBigSquaresParams()
+    private void CalculateAllSquares()
     {
-        //BoardRectangle fi = new BoardRectangle();
+        CalculateBottomLocations();
+        CalculateLeftLocations();
+        CalculateTopLocations();
+        CalculateRightLocations();
     }
 
-    internal void DrawTopLocations()
+    internal void CalculateTopLocations()
     {
         int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
         int NewPos = roadBoard.x + propertyPos + (setting.OutlineSize / 2);
@@ -132,7 +134,12 @@ public class BoardRenderer
                 propertyPos += 3;
             }
             {
-                new BoardRectangle(NewPos, roadBoard.y + roadBoard.height - setting.OutlineSize / 2, propertyPos + setting.OutlineSize / 2, DivRoadWidth + setting.OutlineSize / 2, Color.WHITE, setting.OutlineSize).RenderRec();
+                Squares.Add(21 + i, new BoardRectangle(NewPos,
+                                               roadBoard.y + roadBoard.height - setting.OutlineSize / 2,
+                                               propertyPos + setting.OutlineSize / 2,
+                                               DivRoadWidth + setting.OutlineSize / 2,
+                                               Color.WHITE,
+                                               setting.OutlineSize));
 
                 NewPos += propertyPos;
             }
@@ -142,7 +149,7 @@ public class BoardRenderer
         }
     }
 
-    internal void DrawBottomLocations()
+    internal void CalculateBottomLocations()
     {
         int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
         int NewPos = roadBoard.x + propertyPos + (setting.OutlineSize / 2);
@@ -154,7 +161,36 @@ public class BoardRenderer
                 propertyPos += 3;
             }
             {
-                new BoardRectangle(NewPos, mainBoard.y, propertyPos + setting.OutlineSize / 2, DivRoadWidth + setting.OutlineSize / 2, Color.WHITE, setting.OutlineSize).RenderRec();
+                Squares.Add(1 + i, new BoardRectangle(NewPos,
+                                                  mainBoard.y,
+                                                  propertyPos + setting.OutlineSize / 2,
+                                                  DivRoadWidth + setting.OutlineSize / 2,
+                                                  Color.WHITE,
+                                                  setting.OutlineSize));
+
+                NewPos += propertyPos;
+            }
+        }
+    }
+
+    internal void CalculateLeftLocations()
+    {
+        int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
+        int NewPos = roadBoard.y + propertyPos + (setting.OutlineSize / 2);
+
+        for (int i = 1; i < 9; i++)
+        {
+            if (i == 5)
+            {
+                propertyPos += 3;
+            }
+            {
+                Squares.Add(11 + i, new BoardRectangle(mainBoard.x,
+                                   NewPos,
+                                   DivRoadWidth + setting.OutlineSize / 2,
+                                   propertyPos + setting.OutlineSize / 2,
+                                   Color.WHITE,
+                                   setting.OutlineSize));
 
                 NewPos += propertyPos;
             }
@@ -164,7 +200,7 @@ public class BoardRenderer
         }
     }
 
-    internal void DrawLeftLocations()
+    internal void CalculateRightLocations()
     {
         int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
         int NewPos = roadBoard.y + propertyPos + (setting.OutlineSize / 2);
@@ -176,39 +212,12 @@ public class BoardRenderer
                 propertyPos += 3;
             }
             {
-                new BoardRectangle(mainBoard.x,
+                Squares.Add(33 + i, new BoardRectangle(roadBoard.x + roadBoard.width - setting.OutlineSize / 2,
                                    NewPos,
                                    DivRoadWidth + setting.OutlineSize / 2,
                                    propertyPos + setting.OutlineSize / 2,
                                    Color.WHITE,
-                                   setting.OutlineSize).RenderRec();
-
-                NewPos += propertyPos;
-            }
-
-            //   Raylib.DrawCircle(mainBoard.x + mainBoard.width, roadBoard.y + roadBoard.height + RoadWidth / 2, 5, Color.PURPLE);
-            //   Raylib.DrawCircle(mainBoard.x + mainBoard.width, roadBoard.y + roadBoard.height, 5, Color.RED);
-        }
-    }
-
-    internal void DrawRightLocations()
-    {
-        int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
-        int NewPos = roadBoard.y + propertyPos + (setting.OutlineSize / 2);
-
-        for (int i = 1; i < 9; i++)
-        {
-            if (i == 4)
-            {
-                propertyPos += 3;
-            }
-            {
-                new BoardRectangle(roadBoard.x + roadBoard.width - setting.OutlineSize / 2,
-                                   NewPos,
-                                   DivRoadWidth + setting.OutlineSize / 2,
-                                   propertyPos + setting.OutlineSize / 2,
-                                   Color.WHITE,
-                                   setting.OutlineSize).RenderRec();
+                                   setting.OutlineSize));
 
                 NewPos += propertyPos;
             }
