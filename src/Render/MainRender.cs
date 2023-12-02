@@ -40,6 +40,7 @@ public class MainRender
 
             foreach (PlayerRender p in players)
             {
+                Raylib.DrawText($"CurrentSquare:{p.CurrentSquare}", 1200, 500, 20, Color.BLUE);
                 if (firstTime)
                 {
                     p.GetPosition();

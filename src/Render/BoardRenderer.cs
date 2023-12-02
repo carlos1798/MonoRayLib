@@ -52,8 +52,8 @@ public class BoardRenderer
         BoardHeight = setting.BoardHeight;
         BoardWidth = setting.BoardWidth;
 
-        BoardPosX = setting.CenterX - BoardHeight / 2;
-        BoardPosY = setting.CenterY - BoardHeight / 2;
+        BoardPosX = 30;// setting.CenterX - BoardHeight / 2;
+        BoardPosY = 50;// setting.CenterY - BoardHeight / 2;
 
         mainBoard = new(BoardPosX,
                        BoardPosY,
@@ -114,6 +114,7 @@ public class BoardRenderer
         }
         Squares[10].RenderRec();
         Squares[0].RenderRec();
+        Squares[20].RenderRec();
     }
 
     private void CalculateAllSquares()
@@ -187,7 +188,7 @@ public class BoardRenderer
     {
         int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
         int NewPos = roadBoard.y + propertyPos + (setting.OutlineSize / 2);
-        int firstPosition = ParkingSquare.x - ParkingSquare.height + setting.OutlineSize / 2;
+        int firstPosition = ParkingSquare.y + ParkingSquare.height - setting.OutlineSize / 2;
 
         for (int i = 1; i < 10; i++)
         {
