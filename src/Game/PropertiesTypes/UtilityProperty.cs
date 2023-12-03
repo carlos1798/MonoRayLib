@@ -10,7 +10,7 @@ namespace monoos.src.Game.PropertiesTypes
 {
     internal class UtilityProperty : PropertyLocation, IProperty
     {
-        public UtilityProperty(string name, Image sprite, int square) : base(name, sprite, square)
+        public UtilityProperty(string name, int square) : base(name, square)
         {
         }
 

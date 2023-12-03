@@ -9,7 +9,7 @@ namespace monoos.src.Game
 {
     internal class CommunityLocation : EventLocation
     {
-        public CommunityLocation(string name, Image sprite, int square) : base(name, sprite, square)
+        public CommunityLocation(string name, int square) : base(name, square)
         {
         }
     }

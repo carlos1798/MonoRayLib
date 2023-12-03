@@ -11,7 +11,7 @@ namespace monoos.src.Game
 {
     internal class EventLocation : Location, IEvent
     {
-        public EventLocation(string name, Image sprite, int square) : base(name, sprite, square)
+        public EventLocation(string name, int square) : base(name, square)
         {
         }
 

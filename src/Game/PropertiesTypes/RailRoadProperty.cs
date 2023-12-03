@@ -8,9 +8,13 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Game.PropertiesTypes
 {
-    internal class RailRoadProperty : PropertyLocation, IProperty
+    public class RailRoadProperty : PropertyLocation, IProperty
     {
-        public RailRoadProperty(string name, Image sprite, int square) : base(name, sprite, square)
+        public int RentFullSet;
+        public int Rent2;
+        public int Rent3;
+
+        public RailRoadProperty(string name, int square, int price, bool purcharsed, bool mortgaged, int rent) : base(name, square, price, purcharsed, mortgaged, rent)
         {
         }
 

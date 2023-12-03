@@ -9,10 +9,10 @@ namespace monoos.src.Game
 {
     public abstract class Location
     {
-        protected string name;
+        public string name;
 
         //protected Image sprite;
-        protected int square;
+        public int square;
 
         protected Location(string name, int square)
         {
