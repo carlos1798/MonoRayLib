@@ -16,11 +16,11 @@ namespace monoos.src.Render
         private const int MAX_SQUARES = 39;
         private BoardRenderer board;
 
-        public int CurrentSquare = 0;
-        public int TargetSquare = 0;
+        public int CurrentSquare = 30;
+        public int TargetSquare = 34;
         public int TargetCicles = 0;
 
-        private Vector2 Speed = new() { X = 5, Y = 5 };
+        private Vector2 Speed = new() { X = 2, Y = 2 };
         private Vector2 Position;
         private Vector2 nextSquare;
 
@@ -40,18 +40,27 @@ namespace monoos.src.Render
             Position = new Vector2() { X = board.Squares[CurrentSquare].x + board.Squares[CurrentSquare].width / 2, Y = board.Squares[CurrentSquare].y + board.Squares[CurrentSquare].width / 2 };
         }
 
-        public void RefreshNextSquarePos()
+        public void RefreshNextLateralSquare()
         {
             nextSquare.X = board.Squares[CurrentSquare + 1].x + board.Squares[CurrentSquare + 1].width / 2;
             nextSquare.Y = board.Squares[CurrentSquare + 1].y + board.Squares[CurrentSquare + 1].width / 2;
+            Raylib.DrawCircleV(nextSquare, 5, Color.RED);
+        }
+
+        public void RefreshNextHorizontalSquare()
+        {
+            nextSquare.X = board.Squares[CurrentSquare + 1].x + board.Squares[CurrentSquare + 1].width / 2;
+            nextSquare.Y = board.Squares[CurrentSquare + 1].y + board.Squares[CurrentSquare + 1].height / 2;
+            Raylib.DrawCircleV(nextSquare, 5, Color.DARKBLUE);
         }
 
         public void MoveOneLeft()
         {
-            RefreshNextSquarePos();
+            RefreshNextLateralSquare();
             if (nextSquare.X >= Position.X)
             {
                 CurrentSquare += 1;
+
                 return;
             }
             Position = new Vector2() { X = Position.X - Speed.X, Y = Position.Y };
@@ -59,7 +68,7 @@ namespace monoos.src.Render
 
         public void MoveOneRight()
         {
-            RefreshNextSquarePos();
+            RefreshNextLateralSquare();
             if (nextSquare.X <= Position.X)
             {
                 CurrentSquare += 1;
@@ -70,7 +79,7 @@ namespace monoos.src.Render
 
         public void MoveOneUp()
         {
-            RefreshNextSquarePos();
+            RefreshNextHorizontalSquare();
             if (nextSquare.Y >= Position.Y)
             {
                 CurrentSquare += 1;
@@ -81,10 +90,11 @@ namespace monoos.src.Render
 
         public void MoveOneDown()
         {
-            RefreshNextSquarePos();
+            RefreshNextHorizontalSquare();
             if (nextSquare.Y < Position.Y)
             {
                 CurrentSquare += 1;
+
                 return;
             }
             Position.Y = Position.Y + Speed.Y;
@@ -93,7 +103,7 @@ namespace monoos.src.Render
         public void GoToTargetSquare()
 
         {
-            if (CurrentSquare != TargetSquare )
+            if (CurrentSquare != TargetSquare)
             {
                 if (CurrentSquare >= 10 && CurrentSquare <= 19)
                 {
@@ -145,7 +155,6 @@ namespace monoos.src.Render
             else
             {
                 TargetSquare = CurrentSquare + diceResult;
-
             }
         }
     }
