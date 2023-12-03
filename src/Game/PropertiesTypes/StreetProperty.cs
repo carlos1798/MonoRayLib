@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Game.PropertiesTypes
 {
-    internal class StreetProperty : PropertyLocation, IProperty
+    public class StreetProperty : PropertyLocation, IProperty
     {
         public StreetProperty(string name, Image sprite, int square) : base(name, sprite, square)
         {

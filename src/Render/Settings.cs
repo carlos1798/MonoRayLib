@@ -9,6 +9,8 @@ public class Settings
 
     public int OutlineSize = 8;
 
+    public int NumberOfPlayers = 2;
+
     public int CenterY;
     public int CenterX;
 

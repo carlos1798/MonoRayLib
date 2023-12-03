@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Game
 {
-    internal abstract class Location
+    public abstract class Location
     {
         protected string name;
-        protected Image sprite;
+
+        //protected Image sprite;
         protected int square;
 
-        protected Location(string name, Image sprite, int square)
+        protected Location(string name, int square)
         {
             this.name = name;
-            this.sprite = sprite;
+            //   this.sprite = sprite;
             this.square = square;
         }
     }

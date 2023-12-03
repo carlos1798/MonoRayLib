@@ -39,30 +39,31 @@ public class MainRender
             Raylib.ClearBackground(Color.WHITE);
             board.Draw();
 
-            foreach (PlayerRender p in players)
-            {
-                Raylib.DrawText($"Current Square:{p.CurrentSquare}", 1200, 500, 20, Color.BLUE);
-                Raylib.DrawText($"Dice  :{dices.DiceNumber1} Dice  : {dices.DiceNumber2}", 1200, 700, 20, Color.BLUE);
-                if (firstTime)
-                {
-                    p.GetPosition();
-                    firstTime = false;
-                }
-                else
-                {
-                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
-                    {
-                        dices.RollDices();
-                        p.SetDiceResult(dices.DiceNumber1 + dices.DiceNumber2);
-                    }
-                }
-                p.GoToTargetSquare();
+            //            foreach (PlayerRender p in players)
+            //           {
+            //               Raylib.DrawText($"Current Square:{p.CurrentSquare}", 1200, 500, 20, Color.BLUE);
+            //               Raylib.DrawText($"Dice  :{dices.DiceNumber1} Dice  : {dices.DiceNumber2}", 1200, 700, 20, Color.BLUE);
+            //               if (firstTime)
+            //               {
+            //                   p.GetPosition();
+            //                   firstTime = false;
+            //               }
+            //               else
+            //               {
+            //                   if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
+            //                   {
+            //                       dices.RollDices();
+            //                       p.SetDiceResult(dices.DiceNumber1 + dices.DiceNumber2);
+            //                   }
+            //               }
+            //               p.GoToTargetSquare();
 
-                p.RenderPlayer();
-            }
+            //               p.RenderPlayer();
+            //        }
 
             Raylib.EndDrawing();
         }
+
         Raylib.CloseWindow();
     }
 }

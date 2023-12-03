@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Render
 {
-    internal class PlayerRender
+    public class PlayerRender
     {
         private Settings settings;
         private const int MAX_SQUARES = 39;

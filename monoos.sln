@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "monoos", "monoos.csproj", "{0CC3632A-8B29-4525-AA59-856D60280A07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameParametersGeneratos", "..\GameParametersGeneratos\GameParametersGeneratos.csproj", "{F657A4B9-06E5-4E66-9F22-99B98D705FBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0CC3632A-8B29-4525-AA59-856D60280A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CC3632A-8B29-4525-AA59-856D60280A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CC3632A-8B29-4525-AA59-856D60280A07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F657A4B9-06E5-4E66-9F22-99B98D705FBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F657A4B9-06E5-4E66-9F22-99B98D705FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F657A4B9-06E5-4E66-9F22-99B98D705FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F657A4B9-06E5-4E66-9F22-99B98D705FBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Game
 {
-    internal class Dices
+    public class Dices
     {
         private Settings settings;
         private Random Rdice1 = new Random();

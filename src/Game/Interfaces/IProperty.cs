@@ -8,7 +8,7 @@ using System.Transactions;
 
 namespace monoos.src.Game.Interfaces
 {
-    internal interface IProperty
+    public interface IProperty
     {
         void Execute(Player player);
 
