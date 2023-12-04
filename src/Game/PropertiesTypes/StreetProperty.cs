@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Game.PropertiesTypes
 {
-    public class StreetProperty(string name, int square, int price, bool purcharsed, bool mortgaged, int rent) : PropertyLocation(name, square, price, purcharsed, mortgaged, rent), IProperty
+    public class StreetProperty(string name, int square, int price, bool mortgaged, int rent) : PropertyLocation(name, square, price, mortgaged, rent), IProperty
     {
         private List<Building> Buildings = new();
         private int housecost;

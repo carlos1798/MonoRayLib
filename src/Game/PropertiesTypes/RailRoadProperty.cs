@@ -14,7 +14,7 @@ namespace monoos.src.Game.PropertiesTypes
         public int Rent2;
         public int Rent3;
 
-        public RailRoadProperty(string name, int square, int price, bool purcharsed, bool mortgaged, int rent) : base(name, square, price, purcharsed, mortgaged, rent)
+        public RailRoadProperty(string name, int square, int price, bool mortgaged, int rent) : base(name, square, price, mortgaged, rent)
         {
         }
 

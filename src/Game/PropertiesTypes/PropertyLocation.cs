@@ -12,9 +12,8 @@ namespace monoos.src.Game.PropertiesTypes
 {
     public abstract class PropertyLocation : Location, IProperty
     {
-        private Player? owner;
+        public Player? owner;
         private int price;
-        private bool purcharsed;
         private bool mortgaged;
         private int rent;
 
@@ -22,19 +21,16 @@ namespace monoos.src.Game.PropertiesTypes
         {
         }
 
-        protected PropertyLocation(string name, int square, int price, bool purcharsed, bool mortgaged, int rent) : base(name, square)
+        protected PropertyLocation(string name, int square, int price, bool mortgaged, int rent) : base(name, square)
         {
             this.name = name;
             this.square = square;
             this.price = price;
-            this.purcharsed = purcharsed;
             this.mortgaged = mortgaged;
             this.rent = rent;
         }
 
-        public Player? Owner { get => owner; set => owner = value; }
         public int Price { get => price; set => price = value; }
-        public bool Purcharsed { get => purcharsed; set => purcharsed = value; }
         public bool Mortgaged { get => mortgaged; set => mortgaged = value; }
         public int Rent { get => rent; set => rent = value; }
 

@@ -21,10 +21,6 @@ public class Game
         Players[0].isTurn = true;
     }
 
-    public void Turn(Player player)
-    {
-    }
-
     public void setTurn()
     {
         for (int i = 0; i < Players.Length; i++)
