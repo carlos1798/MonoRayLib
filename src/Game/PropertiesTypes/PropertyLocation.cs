@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Game.PropertiesTypes
 {
-    public abstract class PropertyLocation : Location, IProperty
+    public abstract class PropertyLocation : Location
     {
         public Player? owner;
         private int price;
@@ -34,23 +34,10 @@ namespace monoos.src.Game.PropertiesTypes
         public bool Mortgaged { get => mortgaged; set => mortgaged = value; }
         public int Rent { get => rent; set => rent = value; }
 
-        public void BuyProperty(Player player)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void BuyProperty(Player player);
 
-        public void Execute(Player player)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Execute(Player player);
 
-        public void PayRent(Player player)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void mortgagedProperty()
-        {
-        }
+        public abstract void PayRent(Player player);
     }
 }

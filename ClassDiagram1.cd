@@ -3,7 +3,7 @@
   <Class Name="Board" Collapsed="true">
     <Position X="11.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAIQAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>src\Game\Board.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -25,14 +25,14 @@
   <Class Name="monoos.src.Game.Location">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAEAAAAAAAAAAAAIAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAIAA=</HashCode>
       <FileName>src\Game\Location.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="monoos.src.Game.Player" Collapsed="true">
     <Position X="13.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAgAAAAAAAAAAAAAAAAAABGAAAAAAAAAAAQEAA=</HashCode>
+      <HashCode>AAIAAAAgAAAAAAAAAAACAAAAAABGAAAAAAAAAAAQEAA=</HashCode>
       <FileName>src\Game\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -75,14 +75,14 @@
   <Class Name="monoos.Game" Collapsed="true">
     <Position X="10" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAACgAAIAAAAgACAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACgAAIAAAAgACAAAAA=</HashCode>
       <FileName>src\Render\Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="monoos.MainRender" Collapsed="true">
     <Position X="11.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAEAAAAAAAAAAAAAAAIACAAIAIAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAEAAAAAAAAAAAAAAAKACAAIAIAAAAAAAAAA=</HashCode>
       <FileName>src\Render\MainRender.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -108,18 +108,10 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="monoos.src.Game.PropertiesTypes.PropertyLocation" Collapsed="true">
-    <Position X="5.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAABABABAAAAgAQAAAIAIAAAACAIAgAAAAAIAAAAAAA=</HashCode>
-      <FileName>src\Game\PropertiesTypes\PropertyLocation.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="monoos.src.Game.PropertiesTypes.RailRoadProperty" Collapsed="true">
     <Position X="5.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AQAAIAABAAAAAAQAAAIAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Game\PropertiesTypes\RailRoadProperty.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -127,7 +119,7 @@
   <Class Name="monoos.src.Game.PropertiesTypes.StreetProperty" Collapsed="true">
     <Position X="7.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>gAAAIBABAiAAAARAAAIAQAgAIAAIgCABAAAAAYAAAAA=</HashCode>
       <FileName>src\Game\PropertiesTypes\StreetProperty.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -152,6 +144,13 @@
     <TypeIdentifier>
       <HashCode>AAAABEAAQCACBAAgAEAIAAMDAACAAEABIAQAAAgABAA=</HashCode>
       <FileName>src\Render\PlayerRender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.src.Game.PropertiesTypes.PropertyLocation" Collapsed="true">
+    <Position X="5.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAABAQAAgAQAAAIAIAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game\PropertiesTypes\PropertyLocation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="monoos.src.Game.IEvent" Collapsed="true">

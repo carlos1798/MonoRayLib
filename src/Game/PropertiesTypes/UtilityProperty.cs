@@ -14,17 +14,17 @@ namespace monoos.src.Game.PropertiesTypes
         {
         }
 
-        public void BuyProperty(Player player)
+        public override void BuyProperty(Player player)
         {
             throw new NotImplementedException();
         }
 
-        public void Execute(Player player)
+        public override void Execute(Player player)
         {
             throw new NotImplementedException();
         }
 
-        public void PayRent(Player player)
+        public override void PayRent(Player player)
         {
             throw new NotImplementedException();
         }

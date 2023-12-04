@@ -43,7 +43,7 @@ namespace monoos.src.Game
 
                     if (board.GetLocationBySquare(render.CurrentSquare) is PropertyLocation)
                     {
-                        PropertyLocation Property = (PropertyLocation)board.GetLocationBySquare(render.CurrentSquare);
+                        var Property = (PropertyLocation)board.GetLocationBySquare(render.CurrentSquare);
                         if (Property.owner is null)
                         {
                             Console.WriteLine("comprable");
