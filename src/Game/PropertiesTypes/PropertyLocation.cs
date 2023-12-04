@@ -14,25 +14,18 @@ namespace monoos.src.Game.PropertiesTypes
     {
         public Player? owner;
         private int price;
-        private bool mortgaged;
+        private int mortgagedValue;
         private int rent;
 
-        public PropertyLocation(string name, int square) : base(name, square)
-        {
-        }
-
-        protected PropertyLocation(string name, int square, int price, bool mortgaged, int rent) : base(name, square)
+        protected PropertyLocation(string name, int square) : base(name, square)
         {
             this.name = name;
             this.square = square;
-            this.price = price;
-            this.mortgaged = mortgaged;
-            this.rent = rent;
         }
 
         public int Price { get => price; set => price = value; }
-        public bool Mortgaged { get => mortgaged; set => mortgaged = value; }
         public int Rent { get => rent; set => rent = value; }
+        public int MortgagedValue { get => mortgagedValue; set => mortgagedValue = value; }
 
         public abstract void BuyProperty(Player player);
 
