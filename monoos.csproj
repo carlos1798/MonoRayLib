@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="src\Game\NewFolder\" />
     <Folder Include="src\Resources\Default\" />
   </ItemGroup>
 

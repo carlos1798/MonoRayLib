@@ -10,11 +10,15 @@ namespace monoos.src.Game.PropertiesTypes
 {
     public class RailRoadProperty : PropertyLocation, IProperty
     {
-        public int RentFullSet;
-        public int Rent2;
-        public int Rent3;
+        private int rentFullSet;
+        private int rent2;
+        private int rent3;
 
-        public RailRoadProperty(string name, int square, int price, bool mortgaged, int rent) : base(name, square, price, mortgaged, rent)
+        public int Rent2 { get => rent2; set => rent2 = value; }
+        public int Rent3 { get => rent3; set => rent3 = value; }
+        public int RentFullSet { get => rentFullSet; set => rentFullSet = 200; }
+
+        public RailRoadProperty(string name, int square) : base(name, square)
         {
         }
 

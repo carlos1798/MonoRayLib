@@ -7,17 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace monoos.src.Game
+namespace monoos.src.Game.EventLocations
 {
-    internal class EventLocation : Location, IEvent
+    internal abstract class EventLocation : Location, IEvent
     {
         public EventLocation(string name, int square) : base(name, square)
         {
         }
 
-        public void ExecuteEvent(Player player)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void ExecuteEvent(Player player);
     }
 }

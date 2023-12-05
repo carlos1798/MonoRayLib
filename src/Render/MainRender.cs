@@ -34,7 +34,7 @@ public class MainRender
 
     public void setLocations()
     {
-        StreetProperty streetProperty = new("Calle Baja", 1, 100, false, 20);
+        StreetProperty streetProperty = new("Calle Baja", 1);
         streetProperty.Housecost = 50000;
         streetProperty.RentFullColorSet = 500;
         streetProperty.Rent1H = 200;
@@ -44,7 +44,7 @@ public class MainRender
         streetProperty.RentH = 600;
         streetProperty.ColorSet = Color.RED;
 
-        RailRoadProperty delicias = new("Calle Baja", 1, 100, false, 20);
+        RailRoadProperty delicias = new("Calle Baja", 1);
         delicias.Rent2 = 300;
         delicias.Rent3 = 400;
         delicias.RentFullSet = 500;
