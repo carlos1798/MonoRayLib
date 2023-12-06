@@ -32,6 +32,8 @@ public class BoardRenderer
     public BoardRectangle StartSquare;
     public BoardRectangle JailSquare;
     public Dictionary<int, BoardRectangle> Squares = new();
+    public float Xcenter;
+    public float Ycenter;
 
     public BoardRenderer(Settings setting)
     {
@@ -88,6 +90,8 @@ public class BoardRenderer
                               setting.OutlineSize));
 
         CalculateAllSquares();
+        Xcenter = mainBoard.width / 2;
+        Ycenter = mainBoard.height / 2;
     }
 
     internal void Draw()
