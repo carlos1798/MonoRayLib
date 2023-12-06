@@ -128,8 +128,9 @@ namespace monoos.src.Render
 
                 Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{name}", new Vector2()
                 {
-                    X = location.x + (location.width - propertyUpper.width) - padding * 2,
-                    Y = location.y + padding * 2
+                    X = location.x + (propertyUpper.width) + location.Outline,
+
+                    Y = location.y + location.width / 2 - location.Outline - padding
                 }, new Vector2()
                 {
                     X = 0,
@@ -138,9 +139,9 @@ namespace monoos.src.Render
 
                 Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{prop.Price}{Settings.currency}", new Vector2()
                 {
-                    X = location.x + padding * 2 + location.Outline,
+                    X = location.x + location.width - padding * 2 - location.Outline,
 
-                    Y = location.y + location.height / 2 - location.Outline
+                    Y = location.y + location.width / 2 - location.Outline - padding * 2
                 }, new Vector2()
                 {
                     X = 0,
