@@ -15,10 +15,10 @@
       "RentH": 250,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 148,
+        "G": 89,
+        "B": 59,
+        "A": 255
       },
       "Price": 60,
       "Rent": 2,
@@ -38,10 +38,10 @@
       "RentH": 450,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 148,
+        "G": 89,
+        "B": 59,
+        "A": 255
       },
       "Price": 60,
       "Rent": 4,
@@ -61,10 +61,10 @@
       "RentH": 550,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 169,
+        "G": 223,
+        "B": 251,
+        "A": 255
       },
       "Price": 100,
       "Rent": 6,
@@ -84,10 +84,10 @@
       "RentH": 550,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 169,
+        "G": 223,
+        "B": 251,
+        "A": 255
       },
       "Price": 100,
       "Rent": 6,
@@ -107,10 +107,10 @@
       "RentH": 600,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 169,
+        "G": 223,
+        "B": 251,
+        "A": 255
       },
       "Price": 120,
       "Rent": 8,
@@ -130,10 +130,10 @@
       "RentH": 750,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 213,
+        "G": 62,
+        "B": 149,
+        "A": 255
       },
       "Price": 140,
       "Rent": 10,
@@ -153,10 +153,10 @@
       "RentH": 750,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 213,
+        "G": 62,
+        "B": 149,
+        "A": 255
       },
       "Price": 140,
       "Rent": 10,
@@ -176,10 +176,10 @@
       "RentH": 900,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 213,
+        "G": 62,
+        "B": 149,
+        "A": 255
       },
       "Price": 160,
       "Rent": 12,
@@ -199,10 +199,10 @@
       "RentH": 950,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 250,
+        "G": 149,
+        "B": 33,
+        "A": 255
       },
       "Price": 180,
       "Rent": 14,
@@ -222,10 +222,10 @@
       "RentH": 950,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 250,
+        "G": 149,
+        "B": 33,
+        "A": 255
       },
       "Price": 180,
       "Rent": 14,
@@ -245,10 +245,10 @@
       "RentH": 1000,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 250,
+        "G": 149,
+        "B": 33,
+        "A": 255
       },
       "Price": 200,
       "Rent": 16,
@@ -268,10 +268,10 @@
       "RentH": 1050,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 236,
+        "G": 23,
+        "B": 29,
+        "A": 255
       },
       "Price": 220,
       "Rent": 18,
@@ -291,10 +291,10 @@
       "RentH": 1050,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 236,
+        "G": 23,
+        "B": 29,
+        "A": 255
       },
       "Price": 220,
       "Rent": 18,
@@ -314,10 +314,10 @@
       "RentH": 1100,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 236,
+        "G": 23,
+        "B": 29,
+        "A": 255
       },
       "Price": 240,
       "Rent": 20,
@@ -337,10 +337,10 @@
       "RentH": 1150,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
+        "R": 255,
+        "G": 243,
         "B": 0,
-        "A": 0
+        "A": 255
       },
       "Price": 260,
       "Rent": 22,
@@ -360,10 +360,10 @@
       "RentH": 1150,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
+        "R": 255,
+        "G": 243,
         "B": 0,
-        "A": 0
+        "A": 255
       },
       "Price": 260,
       "Rent": 22,
@@ -383,10 +383,10 @@
       "RentH": 1200,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
+        "R": 255,
+        "G": 243,
         "B": 0,
-        "A": 0
+        "A": 255
       },
       "Price": 280,
       "Rent": 22,
@@ -406,10 +406,10 @@
       "RentH": 1275,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 38,
+        "G": 178,
+        "B": 105,
+        "A": 255
       },
       "Price": 300,
       "Rent": 26,
@@ -429,10 +429,10 @@
       "RentH": 1275,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 38,
+        "G": 178,
+        "B": 105,
+        "A": 255
       },
       "Price": 300,
       "Rent": 26,
@@ -452,10 +452,10 @@
       "RentH": 1400,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 38,
+        "G": 178,
+        "B": 105,
+        "A": 255
       },
       "Price": 320,
       "Rent": 28,
@@ -475,10 +475,10 @@
       "RentH": 1500,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 1,
+        "G": 114,
+        "B": 193,
+        "A": 255
       },
       "Price": 350,
       "Rent": 35,
@@ -498,10 +498,10 @@
       "RentH": 2000,
       "ColorSet": {
         "$type": "Raylib_cs.Color, Raylib-cs",
-        "R": 0,
-        "G": 0,
-        "B": 0,
-        "A": 0
+        "R": 1,
+        "G": 114,
+        "B": 193,
+        "A": 255
       },
       "Price": 400,
       "Rent": 50,

@@ -17,6 +17,8 @@ public class Settings
     public int BoardWidth = 894;
     public int BoardHeight = 894;
 
+    public const char currency = '$';
+
     public int ScreenWidth { get => screenWidth; set => screenWidth = value; }
     public int ScreenHeight { get => screenHeight; set => screenHeight = value; }
 

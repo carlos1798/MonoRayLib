@@ -27,6 +27,8 @@ public class MainRender
         dices = new(setting);
         players.Add(new("carlos", 1500, new(setting, board.render)));
         Raylib.InitWindow(setting.ScreenWidth, setting.ScreenHeight, "Monooo");
+
+        Raylib.SetTargetFPS(60);
         board.LoadLocationInfo();
         mainLoop();
     }
@@ -36,8 +38,7 @@ public class MainRender
         while (!Raylib.WindowShouldClose())
         {
             Raylib.BeginDrawing();
-            Raylib.SetTargetFPS(60);
-
+            Raylib.DrawFPS(setting.ScreenWidth - 100, setting.ScreenHeight + 100);
             Raylib.ClearBackground(Color.WHITE);
             board.render.Draw();
             board.RenderLocations();
