@@ -14,8 +14,10 @@ public class Settings
     public int CenterY;
     public int CenterX;
 
-    public int BoardWidth = 894;
-    public int BoardHeight = 894;
+    public const int fontSize = 15;
+
+    public int BoardWidth = 1200;
+    public int BoardHeight = 1200;
 
     public const char currency = '$';
 

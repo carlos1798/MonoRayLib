@@ -20,7 +20,7 @@ public class BoardRenderer
     private int BoardPosX;
     private int BoardPosY;
 
-    private const int RoadWidth = 250; //px
+    private const int RoadWidth = 300; //px
 
     private int DivRoadWidth = RoadWidth / 2;
     private Color mainColor = new Color(204, 233, 209, 255);

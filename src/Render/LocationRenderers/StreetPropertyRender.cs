@@ -55,13 +55,13 @@ namespace monoos.src.Render
                 Raylib.DrawText($"{name}",
                                 location.x + padding * 2,
                                 location.y + propertyUpper.height + padding,
-                                1,
+                                Settings.fontSize,
                                 Color.BLACK);
 
                 Raylib.DrawText($"{prop.Price}{Settings.currency}",
                                 location.x + location.width / 2 - location.Outline,
                                 location.y + location.height - padding * 2 - location.Outline,
-                                1,
+                                Settings.fontSize,
                                 Color.BLACK);
             }
             else if (prop.square > 10 && prop.square <= 19)
@@ -79,7 +79,7 @@ namespace monoos.src.Render
                 {
                     X = 0,
                     Y = 0
-                }, 90, 10, 1, Color.BLACK);
+                }, 90, Settings.fontSize, 1, Color.BLACK);
 
                 Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{prop.Price}{Settings.currency}", new Vector2()
                 {
@@ -90,7 +90,7 @@ namespace monoos.src.Render
                 {
                     X = 0,
                     Y = 0
-                }, 90, 10, 1, Color.BLACK);
+                }, 90, Settings.fontSize, 1, Color.BLACK);
             }
             else if (prop.square > 20 && prop.square <= 29)
             {
@@ -102,12 +102,12 @@ namespace monoos.src.Render
                 {
                     X = location.x + (location.width / 2) + location.Outline * 2,
 
-                    Y = propertyUpper.y - location.Outline - padding
+                    Y = propertyUpper.y + location.Outline * 2 - padding * 4
                 }, new Vector2()
                 {
                     X = 0,
                     Y = 0
-                }, 180, 10, 1, Color.BLACK);
+                }, 180, Settings.fontSize, 1, Color.BLACK);
 
                 Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{prop.Price}{Settings.currency}", new Vector2()
                 {
@@ -118,7 +118,7 @@ namespace monoos.src.Render
                 {
                     X = 0,
                     Y = 0
-                }, 180, 10, 1, Color.BLACK);
+                }, 180, Settings.fontSize, 1, Color.BLACK);
             }
             else if (prop.square > 30 && prop.square <= 39)
             {
@@ -130,12 +130,12 @@ namespace monoos.src.Render
                 {
                     X = location.x + (propertyUpper.width) + location.Outline,
 
-                    Y = location.y + location.width / 2 - location.Outline - padding
+                    Y = location.y + location.width / 2 + location.Outline - padding
                 }, new Vector2()
                 {
                     X = 0,
                     Y = 0
-                }, 270, 10, 1, Color.BLACK);
+                }, 270, Settings.fontSize, 1, Color.BLACK);
 
                 Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{prop.Price}{Settings.currency}", new Vector2()
                 {
@@ -146,7 +146,7 @@ namespace monoos.src.Render
                 {
                     X = 0,
                     Y = 0
-                }, 270, 10, 1, Color.BLACK);
+                }, 270, Settings.fontSize, 1, Color.BLACK);
             }
         }
 

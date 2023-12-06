@@ -44,6 +44,7 @@ public class MainRender
         camera.Offset = new Vector2() { X = setting.ScreenWidth / 2.0f, Y = setting.ScreenHeight / 2.0f };
         camera.Rotation = 0.0f;
         camera.Zoom = 1.0f;
+        Vector2 prevMousePos = Raylib.GetMousePosition();
 
         while (!Raylib.WindowShouldClose())
         {
@@ -54,8 +55,17 @@ public class MainRender
 
             board.render.Draw();
             board.RenderLocations();
+            board.render.Squares[10].RenderRec();
+            board.render.Squares[0].RenderRec();
+            board.render.Squares[20].RenderRec();
 
-            // Camera target follows board.render.mainboard
+            Vector2 thisPos = Raylib.GetMousePosition();
+
+            Vector2 delta = Vector2.Subtract(prevMousePos, thisPos);
+            prevMousePos = thisPos;
+
+            if (Raylib.IsMouseButtonDown(0))
+                camera.Target = Raylib.GetScreenToWorld2D(Vector2.Add(camera.Offset, delta), camera);
 
             Raylib.DrawCircle((int)camera.Target.X, (int)camera.Target.Y, 10, Color.RED);
             // Camera rotation controls
