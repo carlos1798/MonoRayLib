@@ -14,6 +14,7 @@ public class MainRender
     private List<Player> players = new();
     private bool firstTime = true;
     private Dices dices;
+    private int cameraSpeed = 10;
 
     public MainRender(Settings settings)
     {
@@ -26,6 +27,8 @@ public class MainRender
         board.render.SetBoardParams();
         dices = new(setting);
         players.Add(new("carlos", 1500, new(setting, board.render)));
+        Raylib.SetConfigFlags(ConfigFlags.FLAG_MSAA_4X_HINT);
+
         Raylib.InitWindow(setting.ScreenWidth, setting.ScreenHeight, "Monooo");
 
         Raylib.SetTargetFPS(60);
@@ -36,7 +39,7 @@ public class MainRender
     public void mainLoop()
     {
         Camera2D camera = new();
-        camera.Target = new Vector2() { X = board.render.Xcenter + setting.OutlineSize * 2, Y = board.render.Ycenter + setting.OutlineSize * 2 };
+        camera.Target = new Vector2() { X = board.render.Xcenter + setting.OutlineSize * 2, Y = board.render.Ycenter + setting.OutlineSize * 4 };
 
         camera.Offset = new Vector2() { X = setting.ScreenWidth / 2.0f, Y = setting.ScreenHeight / 2.0f };
         camera.Rotation = 0.0f;
@@ -56,8 +59,13 @@ public class MainRender
 
             Raylib.DrawCircle((int)camera.Target.X, (int)camera.Target.Y, 10, Color.RED);
             // Camera rotation controls
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_A)) camera.Rotation--;
-            else if (Raylib.IsKeyDown(KeyboardKey.KEY_S)) camera.Rotation++;
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_Q)) camera.Rotation--;
+            else if (Raylib.IsKeyDown(KeyboardKey.KEY_E)) camera.Rotation++;
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_A)) camera.Target.X -= cameraSpeed;
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_D)) camera.Target.X += cameraSpeed;
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_W)) camera.Target.Y -= cameraSpeed;
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_S)) camera.Target.Y += cameraSpeed;
 
             // Limit camera rotation to 80 degrees (-40 to 40)
 

@@ -91,7 +91,7 @@ public class BoardRenderer
 
         CalculateAllSquares();
         Xcenter = mainBoard.width / 2;
-        Ycenter = mainBoard.height / 2;
+        Ycenter = mainBoard.y + mainBoard.height / 2 - setting.OutlineSize * 2;
     }
 
     internal void Draw()
