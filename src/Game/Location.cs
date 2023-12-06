@@ -20,5 +20,7 @@ namespace monoos.src.Game
             //   this.sprite = sprite;
             this.square = square;
         }
+
+        public abstract void LocationRender(Board board);
     }
 }

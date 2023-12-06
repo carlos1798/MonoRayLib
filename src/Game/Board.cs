@@ -27,4 +27,12 @@ public class Board
     {
         return locations[square];
     }
+
+    public void RenderLocations()
+    {
+        foreach (Location location in locations)
+        {
+            location.LocationRender(this);
+        }
+    }
 }

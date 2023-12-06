@@ -36,5 +36,10 @@ namespace monoos.src.Game.PropertiesTypes
         {
             throw new NotImplementedException();
         }
+
+        public override void LocationRender(Board board)
+        {
+            Console.WriteLine("Railroad");
+        }
     }
 }

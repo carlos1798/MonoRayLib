@@ -21,5 +21,10 @@ namespace monoos.src.Game.EventLocations
         {
             throw new NotImplementedException();
         }
+
+        public override void LocationRender(Board board)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

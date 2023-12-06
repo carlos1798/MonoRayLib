@@ -24,6 +24,11 @@ namespace monoos.src.Game.PropertiesTypes
             throw new NotImplementedException();
         }
 
+        public override void LocationRender(Board board)
+        {
+            Console.WriteLine("Utility");
+        }
+
         public override void PayRent(Player player)
         {
             throw new NotImplementedException();

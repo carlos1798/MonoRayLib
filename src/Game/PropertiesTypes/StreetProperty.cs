@@ -1,4 +1,5 @@
 ﻿using monoos.src.Game.Interfaces;
+using monoos.src.Render;
 using Raylib_cs;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,11 @@ namespace monoos.src.Game.PropertiesTypes
         public override void Execute(Player player)
         {
             throw new NotImplementedException();
+        }
+
+        public override void LocationRender(Board board)
+        {
+            new StreetPropertyRender(this, board.render.Squares[square]).RedenderLocation();
         }
 
         public override void PayRent(Player player)

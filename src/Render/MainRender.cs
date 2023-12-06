@@ -31,7 +31,6 @@ public class MainRender
         mainLoop();
     }
 
-  
     public void mainLoop()
     {
         while (!Raylib.WindowShouldClose())
@@ -41,6 +40,7 @@ public class MainRender
 
             Raylib.ClearBackground(Color.WHITE);
             board.render.Draw();
+            board.RenderLocations();
 
             foreach (Player player in players)
             {
