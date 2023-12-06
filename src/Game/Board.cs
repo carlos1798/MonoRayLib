@@ -1,4 +1,5 @@
 using monoos;
+using monoos.src;
 using monoos.src.Game;
 using monoos.src.Render;
 using monoos.src.Render.LocationRenderers;
@@ -7,6 +8,8 @@ public class Board
 {
     public BoardRenderer render;
     public List<Location> locations;
+    public Loader loader;
+    public Settings settings;
 
     public Board(Settings settings)
     {
@@ -14,15 +17,14 @@ public class Board
         render = new(settings);
     }
 
-    public List<Location> Locations { get => locations; set => locations = value; }
-
     public void LoadLocationInfo()
     {
+        loader = new(settings);
+        locations = loader.LoadBoardInformation();
     }
 
     public Location GetLocationBySquare(int square)
     {
-        square = 1;
-        return Locations[square];
+        return locations[square];
     }
 }

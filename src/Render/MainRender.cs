@@ -27,32 +27,11 @@ public class MainRender
         dices = new(setting);
         players.Add(new("carlos", 1500, new(setting, board.render)));
         Raylib.InitWindow(setting.ScreenWidth, setting.ScreenHeight, "Monooo");
-
-        setLocations();
+        board.LoadLocationInfo();
         mainLoop();
     }
 
-    public void setLocations()
-    {
-        StreetProperty streetProperty = new("Calle Baja", 1);
-        streetProperty.Housecost = 50000;
-        streetProperty.RentFullColorSet = 500;
-        streetProperty.Rent1H = 200;
-        streetProperty.Rent2H = 300;
-        streetProperty.Rent3H = 400;
-        streetProperty.Rent4H = 500;
-        streetProperty.RentH = 600;
-        streetProperty.ColorSet = Color.RED;
-
-        RailRoadProperty delicias = new("Calle Baja", 1);
-        delicias.Rent2 = 300;
-        delicias.Rent3 = 400;
-        delicias.RentFullSet = 500;
-        delicias.square = 5;
-        board.locations.Add(streetProperty);
-        board.locations.Add(delicias);
-    }
-
+  
     public void mainLoop()
     {
         while (!Raylib.WindowShouldClose())

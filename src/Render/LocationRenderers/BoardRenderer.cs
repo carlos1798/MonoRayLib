@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Drawing;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -6,6 +7,7 @@ using System.Runtime.InteropServices.Marshalling;
 using monoos.src.Render;
 using monoos.src.Render.LocationRenderers;
 using Raylib_cs;
+using Color = Raylib_cs.Color;
 
 namespace monoos;
 
@@ -21,6 +23,7 @@ public class BoardRenderer
     private const int RoadWidth = 250; //px
 
     private int DivRoadWidth = RoadWidth / 2;
+    private Color mainColor = new Color(204, 233, 209, 255);
 
     public BoardRectangle mainBoard;
     public BoardRectangle roadBoard;
@@ -47,14 +50,14 @@ public class BoardRenderer
                        BoardPosY,
                        BoardWidth,
                        BoardHeight,
-                       Color.WHITE,
+                       mainColor,
                        setting.OutlineSize);
 
         roadBoard = new(mainBoard.x + DivRoadWidth,
                               mainBoard.y + DivRoadWidth,
                               mainBoard.width - RoadWidth,
                               mainBoard.height - RoadWidth,
-                              Color.YELLOW,
+                             mainColor,
                               setting.OutlineSize);
 
         Squares.Add(20, ParkingSquare = new(mainBoard.x,
@@ -135,7 +138,7 @@ public class BoardRenderer
                                                roadBoard.y + roadBoard.height - setting.OutlineSize / 2,
                                                propertyPos + setting.OutlineSize / 2,
                                                DivRoadWidth + setting.OutlineSize / 2,
-                                               Color.WHITE,
+                                                mainColor,
                                                setting.OutlineSize));
 
                 NewPos += propertyPos;
@@ -164,7 +167,7 @@ public class BoardRenderer
                                                   mainBoard.y,
                                                   propertyPos + setting.OutlineSize / 2,
                                                   DivRoadWidth + setting.OutlineSize / 2,
-                                                  Color.WHITE,
+                                                  mainColor,
                                                   setting.OutlineSize));
 
                 NewPos += propertyPos;
@@ -194,7 +197,7 @@ public class BoardRenderer
                                    NewPos,
                                    DivRoadWidth + setting.OutlineSize / 2,
                                    propertyPos + setting.OutlineSize / 2,
-                                   Color.WHITE,
+                                   mainColor,
                                    setting.OutlineSize));
 
                 NewPos += propertyPos;
@@ -224,7 +227,7 @@ public class BoardRenderer
                                    NewPos,
                                    DivRoadWidth + setting.OutlineSize / 2,
                                    propertyPos + setting.OutlineSize / 2,
-                                   Color.WHITE,
+                                   mainColor,
                                    setting.OutlineSize));
 
                 NewPos += propertyPos;
