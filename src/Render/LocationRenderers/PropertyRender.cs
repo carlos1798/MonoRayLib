@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Render
 {
-    internal class PropertyRender
+    public class PropertyRender
     {
+        record PropertyInfo(string name, Board board);
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Game.EventLocations
 {
-    internal class CommunityLocation : EventLocation
+    public class CommunityLocation : EventLocation
     {
         public CommunityLocation(string name, int square) : base(name, square)
         {

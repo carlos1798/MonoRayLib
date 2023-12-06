@@ -1,6 +1,7 @@
 using monoos;
 using monoos.src.Game;
 using monoos.src.Render;
+using monoos.src.Render.LocationRenderers;
 
 public class Board
 {

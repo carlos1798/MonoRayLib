@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Game.EventLocations
 {
-    internal abstract class EventLocation : Location, IEvent
+    public abstract class EventLocation : Location, IEvent
     {
         public EventLocation(string name, int square) : base(name, square)
         {

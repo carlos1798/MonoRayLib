@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Game.EventLocations
 {
-    internal class ChanceLocation : EventLocation, IEvent
+    public class ChanceLocation : EventLocation, IEvent
     {
         public ChanceLocation(string name, int square) : base(name, square)
         {
+            this.name = name;
+            this.square = square;
         }
 
         public override void ExecuteEvent(Player player)

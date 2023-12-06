@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 using monoos.src.Render;
+using monoos.src.Render.LocationRenderers;
 using Raylib_cs;
 
 namespace monoos;
@@ -28,19 +29,6 @@ public class BoardRenderer
     public BoardRectangle StartSquare;
     public BoardRectangle JailSquare;
     public Dictionary<int, BoardRectangle> Squares = new();
-
-    public record BoardRectangle(int x, int y, int width, int height, Color color, int Outline = 0)
-    {
-        public void RenderRec()
-        {
-            if (Outline != 0)
-            {
-                Raylib.DrawRectangle(x, y, width, height, Color.BLACK);
-            }
-
-            Raylib.DrawRectangle(x + Outline / 2, y + Outline / 2, width - Outline, height - Outline, color);
-        }
-    };
 
     public BoardRenderer(Settings setting)
     {
