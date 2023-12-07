@@ -540,7 +540,7 @@
     {
       "$type": "monoos.src.Game.PropertiesTypes.RailRoadProperty, monoos",
       "owner": null,
-      "name": "Pennsylvania Railroad",
+      "name": "Percival Railroad",
       "square": 15,
       "Rent2": 100,
       "Rent3": 150,
@@ -552,7 +552,7 @@
     {
       "$type": "monoos.src.Game.PropertiesTypes.RailRoadProperty, monoos",
       "owner": null,
-      "name": "B. & O. Railroad",
+      "name": "B.&O. Railroad",
       "square": 25,
       "Rent2": 100,
       "Rent3": 150,
@@ -564,7 +564,7 @@
     {
       "$type": "monoos.src.Game.PropertiesTypes.RailRoadProperty, monoos",
       "owner": null,
-      "name": "Short Line Railroad",
+      "name": "Short-Line Railroad",
       "square": 35,
       "Rent2": 100,
       "Rent3": 150,

@@ -14,7 +14,7 @@ public class Settings
     public int CenterY;
     public int CenterX;
 
-    public const int fontSize = 15;
+    public const int fontSize = 10;
 
     public int BoardWidth = 1200;
     public int BoardHeight = 1200;

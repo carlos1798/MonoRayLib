@@ -1,4 +1,5 @@
 ﻿using monoos.src.Game.Interfaces;
+using monoos.src.Render.LocationRenderers;
 using Raylib_cs;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace monoos.src.Game.PropertiesTypes
 
         public override void LocationRender(Board board)
         {
-            Console.WriteLine("Utility");
+            new UtilityLocationRender(this, board.render.Squares[square], board.textures).RenderLocation();
         }
 
         public override void PayRent(Player player)

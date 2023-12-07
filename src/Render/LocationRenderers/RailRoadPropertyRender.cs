@@ -13,6 +13,7 @@ namespace monoos.src.Render.LocationRenderers
     {
         public override void RenderLocation()
         {
+            RenderLocationTitle(locationInfo.square, locationInfo.name);
             LoadMainTexture(locationInfo.square, "Train");
         }
     }

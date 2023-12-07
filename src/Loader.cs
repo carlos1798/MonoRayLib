@@ -16,8 +16,8 @@ namespace monoos.src
     {
         private Settings settings;
 
-        private const string PATH = "C:\\Users\\carlos\\repos\\monoos\\src\\Resources\\Default\\Properties.json";
-        private const string PATH_SPECIAL = "C:\\Users\\carlos\\repos\\monoos\\src\\Resources\\Default\\SpecialSquares.json";
+        private string PATH = Environment.CurrentDirectory + "\\src\\Resources\\Default\\Properties.json";
+        private string PATH_SPECIAL = Environment.CurrentDirectory + "\\src\\Resources\\Default\\SpecialSquares.json";
 
         public Loader(Settings settings)
         {

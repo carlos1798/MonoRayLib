@@ -13,6 +13,7 @@ namespace monoos.src.Render.LocationRenderers
     {
         public override void RenderLocation()
         {
+            RenderLocationTitle(locationInfo.square, locationInfo.name);
             if (locationInfo.square == 7)
             {
                 LoadMainTexture(locationInfo.square, "Chance1");

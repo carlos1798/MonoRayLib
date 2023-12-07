@@ -26,6 +26,57 @@ namespace monoos.src.Render.BaseRenders
 
         public abstract void RenderLocation();
 
+        public void RenderLocationTitle(int square, string name)
+        {
+            name = FormatName(name);
+            if (square <= 9)
+            {
+                Raylib.DrawText($"{name}",
+                                locationRender.x + locationRender.Outline * 4,
+                                locationRender.y + locationRender.Outline,
+                                Settings.fontSize,
+                                Color.BLACK);
+            }
+            else if (square > 10 && square <= 19)
+            {
+                Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{name}", new Vector2()
+                {
+                    X = locationRender.x + locationRender.width,
+                    Y = locationRender.y
+                }, new Vector2()
+                {
+                    X = 0,
+                    Y = 0
+                }, 90, Settings.fontSize, 1, Color.BLACK);
+            }
+            else if (square > 20 && square <= 29)
+            {
+                Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{name}", new Vector2()
+                {
+                    X = locationRender.x + (locationRender.width / 2) + locationRender.Outline * 2,
+
+                    Y = locationRender.y + locationRender.Outline * 2
+                }, new Vector2()
+                {
+                    X = 0,
+                    Y = 0
+                }, 180, Settings.fontSize, 1, Color.BLACK);
+            }
+            else if (square > 30 && square <= 39)
+            {
+                Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{name}", new Vector2()
+                {
+                    X = locationRender.x + locationRender.Outline,
+
+                    Y = locationRender.y + locationRender.width / 2 + locationRender.Outline
+                }, new Vector2()
+                {
+                    X = 0,
+                    Y = 0
+                }, 270, Settings.fontSize, 1, Color.BLACK);
+            }
+        }
+
         public void LoadMainTexture(int square, string textKey)
         {
             var texture = textures[textKey];
@@ -89,9 +140,9 @@ namespace monoos.src.Render.BaseRenders
             var result = regex.Replace(input, m =>
             {
                 var word = m.Value;
-                if (word.Length > 8)
+                if (word.Length > 10)
                 {
-                    return word.Insert(word.Length - (word.Length - 7), "-\n");
+                    return word.Insert(word.Length - (word.Length - 10), "-\n");
                 }
                 else
                 {
