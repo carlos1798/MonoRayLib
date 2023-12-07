@@ -1,4 +1,5 @@
 ﻿using monoos.src.Game.Interfaces;
+using monoos.src.Render.LocationRenderers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace monoos.src.Game.EventLocations
 
         public override void LocationRender(Board board)
         {
-            Console.WriteLine("Tax1");
+            new TaxLocationRender(this, board.render.Squares[square], board.textures).RenderLocation();
         }
     }
 }

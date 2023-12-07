@@ -66,27 +66,27 @@ public class BoardRenderer
                               mainBoard.y,
                               DivRoadWidth + setting.OutlineSize / 2,
                               DivRoadWidth + setting.OutlineSize / 2,
-                              Color.LIME,
+                              mainColor,
                               setting.OutlineSize));
 
         Squares.Add(30, GoToJailSquare = new(roadBoard.x + roadBoard.width - setting.OutlineSize / 2,
                               mainBoard.y,
                               DivRoadWidth + setting.OutlineSize / 2,
                               DivRoadWidth + setting.OutlineSize / 2,
-                              Color.RED,
+                              mainColor,
                               setting.OutlineSize));
 
         Squares.Add(0, StartSquare = new(roadBoard.x + roadBoard.width - setting.OutlineSize / 2,
                                     roadBoard.y + roadBoard.height - setting.OutlineSize / 2,
                                     DivRoadWidth + setting.OutlineSize / 2,
                                     DivRoadWidth + setting.OutlineSize / 2,
-                                    Color.BLUE,
+                                    mainColor,
                                     setting.OutlineSize));
         Squares.Add(10, JailSquare = new(mainBoard.x,
                               roadBoard.y + roadBoard.height - setting.OutlineSize / 2,
                               DivRoadWidth + setting.OutlineSize / 2,
                               DivRoadWidth + setting.OutlineSize / 2,
-                              Color.ORANGE,
+                              mainColor,
                               setting.OutlineSize));
 
         CalculateAllSquares();

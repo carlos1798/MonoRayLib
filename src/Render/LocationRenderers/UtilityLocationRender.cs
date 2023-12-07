@@ -14,6 +14,7 @@ namespace monoos.src.Render.LocationRenderers
         public override void RenderLocation()
         {
             RenderLocationTitle(locationInfo.square, locationInfo.name);
+            RenderLocationPrice(locationInfo.square, locationInfo.Price);
             if (locationInfo.square == 12)
             {
                 LoadMainTexture(locationInfo.square, "Electric");

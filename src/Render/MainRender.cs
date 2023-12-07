@@ -61,11 +61,8 @@ public class MainRender
             Raylib.ClearBackground(Color.WHITE);
 
             board.render.Draw();
+
             board.RenderLocations();
-            board.render.Squares[10].RenderRec();
-            board.render.Squares[0].RenderRec();
-            board.render.Squares[20].RenderRec();
-            board.render.Squares[30].RenderRec();
 
             Vector2 thisPos = Raylib.GetMousePosition();
 
@@ -82,7 +79,6 @@ public class MainRender
                 camera.Rotation += (delta.X - delta.Y) / 10;
             }
 
-            Raylib.DrawCircle((int)camera.Target.X, (int)camera.Target.Y, 10, Color.RED);
             if (Raylib.IsKeyDown(KeyboardKey.KEY_Q)) camera.Rotation--;
             else if (Raylib.IsKeyDown(KeyboardKey.KEY_E)) camera.Rotation++;
 

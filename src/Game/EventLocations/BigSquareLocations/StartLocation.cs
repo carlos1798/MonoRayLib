@@ -1,4 +1,5 @@
-﻿using System;
+﻿using monoos.src.Render.LocationRenderers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace monoos.src.Game.EventLocations.BigSquareLocations
 
         public override void LocationRender(Board board)
         {
-            Console.WriteLine("start");
+            new StartLocationRender(this, board.render.Squares[square], board.textures).RenderLocation();
         }
     }
 }

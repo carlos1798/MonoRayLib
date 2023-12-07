@@ -15,6 +15,7 @@ namespace monoos.src.Render.LocationRenderers
         {
             RenderLocationTitle(locationInfo.square, locationInfo.name);
             LoadMainTexture(locationInfo.square, "Train");
+            RenderLocationPrice(locationInfo.square, locationInfo.Price);
         }
     }
 }

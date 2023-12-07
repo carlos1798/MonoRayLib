@@ -234,15 +234,16 @@
   <Class Name="monoos.src.Render.BaseRenders.ConcreteRender&lt;T&gt;">
     <Position X="24" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAgAAAAGAIAAAAAAAAAAAAAAAAAgAAAACAAAAAAAA=</HashCode>
+      <HashCode>AIIEgAAAAGAIAAAAAAAAAAAAAAAAAgAACACAAAAAAAA=</HashCode>
       <FileName>src\Render\BaseRenders\ConcreteRender.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="monoos.src.Render.LocationRenderers.LocationRender" Collapsed="true">
+  <Class Name="monoos.src.Render.LocationRenderers.GoToJailLocationRender" Collapsed="true">
     <Position X="45.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\Render\BaseRenders\LocationRender.cs</FileName>
+      <FileName>src\Render\LocationRenderers\BigSquareLocationRender.cs</FileName>
+      <NewMemberFileName>src\Render\BaseRenders\LocationRender.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="monoos.src.Render.LocationRenderers.RailRoadPropertyRender">

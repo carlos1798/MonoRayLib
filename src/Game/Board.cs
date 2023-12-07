@@ -40,7 +40,19 @@ public class Board
     {
         foreach (Location location in locations)
         {
-            location.LocationRender(this);
+            if (!(location.square == 10 || location.square == 0 || location.square == 30 || location.square == 20))
+            {
+                location.LocationRender(this);
+            }
+        }
+
+        foreach (Location location in locations)
+        {
+            if (location.square == 10 || location.square == 0 || location.square == 30 || location.square == 20)
+            {
+                render.Squares[location.square].RenderRec();
+                location.LocationRender(this);
+            }
         }
     }
 }
