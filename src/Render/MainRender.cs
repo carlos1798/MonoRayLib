@@ -39,6 +39,7 @@ public class MainRender
 
         Raylib.SetTargetFPS(60);
         board.LoadLocationInfo();
+        board.LoadTextures();
         mainLoop();
     }
 
@@ -64,6 +65,7 @@ public class MainRender
             board.render.Squares[10].RenderRec();
             board.render.Squares[0].RenderRec();
             board.render.Squares[20].RenderRec();
+            board.render.Squares[30].RenderRec();
 
             Vector2 thisPos = Raylib.GetMousePosition();
 

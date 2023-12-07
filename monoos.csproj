@@ -5,6 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +15,11 @@
 
   <ItemGroup>
     <Folder Include="src\Game\NewFolder\" />
-    <Folder Include="src\Resources\Default\Textures\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="src\Resources\Default\Textures\Train.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

@@ -19,6 +19,7 @@ public class Settings
     public int BoardWidth = 1200;
     public int BoardHeight = 1200;
 
+    public string TexturePath = "\\src\\Resources\\Default\\Textures";
     public const char currency = '$';
 
     public int ScreenWidth { get => screenWidth; set => screenWidth = value; }

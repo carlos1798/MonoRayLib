@@ -13,15 +13,11 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Render
 {
-    public class StreetPropertyRender : ConcreteRender<StreetProperty>
+    public class StreetPropertyRender(StreetProperty property, BoardRectangle renderLocation) : ConcreteRender<StreetProperty>(property, renderLocation)
     {
         private const double CIProportion = 0.7;
         private const int padding = 5;
         private string name;
-
-        public StreetPropertyRender(StreetProperty property, BoardRectangle br) : base(property, br)
-        {
-        }
 
         public override void RenderLocation()
         {
@@ -32,14 +28,14 @@ namespace monoos.src.Render
                 propertyUpper.RenderRec();
 
                 Raylib.DrawText($"{name}",
-                                location.x + padding * 2,
-                                location.y + propertyUpper.height + padding,
+                                renderLocation.x + padding * 2,
+                                renderLocation.y + propertyUpper.height + padding,
                                 Settings.fontSize,
                                 Color.BLACK);
 
                 Raylib.DrawText($"{property.Price}{Settings.currency}",
-                                location.x + location.width / 2 - location.Outline,
-                                location.y + location.height - padding * 2 - location.Outline,
+                                renderLocation.x + renderLocation.width / 2 - renderLocation.Outline,
+                                renderLocation.y + renderLocation.height - padding * 2 - renderLocation.Outline,
                                 Settings.fontSize,
                                 Color.BLACK);
             }
@@ -50,9 +46,9 @@ namespace monoos.src.Render
 
                 Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{name}", new Vector2()
                 {
-                    X = location.x + (location.width - propertyUpper.width) - padding * 2,
+                    X = renderLocation.x + (renderLocation.width - propertyUpper.width) - padding * 2,
 
-                    Y = location.y + padding * 2
+                    Y = renderLocation.y + padding * 2
                 }, new Vector2()
                 {
                     X = 0,
@@ -61,9 +57,9 @@ namespace monoos.src.Render
 
                 Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{property.Price}{Settings.currency}", new Vector2()
                 {
-                    X = location.x + padding * 2 + location.Outline,
+                    X = renderLocation.x + padding * 2 + renderLocation.Outline,
 
-                    Y = location.y + location.height / 2 - location.Outline
+                    Y = renderLocation.y + renderLocation.height / 2 - renderLocation.Outline
                 }, new Vector2()
                 {
                     X = 0,
@@ -77,9 +73,9 @@ namespace monoos.src.Render
 
                 Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{name}", new Vector2()
                 {
-                    X = location.x + (location.width / 2) + location.Outline * 2,
+                    X = renderLocation.x + (renderLocation.width / 2) + renderLocation.Outline * 2,
 
-                    Y = propertyUpper.y + location.Outline * 2 - padding * 4
+                    Y = propertyUpper.y + renderLocation.Outline * 2 - padding * 4
                 }, new Vector2()
                 {
                     X = 0,
@@ -88,9 +84,9 @@ namespace monoos.src.Render
 
                 Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{property.Price}{Settings.currency}", new Vector2()
                 {
-                    X = location.x + (location.width / 2) + location.Outline * 2,
+                    X = renderLocation.x + (renderLocation.width / 2) + renderLocation.Outline * 2,
 
-                    Y = location.y + location.Outline + padding * 2
+                    Y = renderLocation.y + renderLocation.Outline + padding * 2
                 }, new Vector2()
                 {
                     X = 0,
@@ -104,9 +100,9 @@ namespace monoos.src.Render
 
                 Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{name}", new Vector2()
                 {
-                    X = location.x + (propertyUpper.width) + location.Outline,
+                    X = renderLocation.x + (propertyUpper.width) + renderLocation.Outline,
 
-                    Y = location.y + location.width / 2 + location.Outline - padding
+                    Y = renderLocation.y + renderLocation.width / 2 + renderLocation.Outline - padding
                 }, new Vector2()
                 {
                     X = 0,
@@ -115,9 +111,9 @@ namespace monoos.src.Render
 
                 Raylib.DrawTextPro(Raylib.GetFontDefault(), $"{property.Price}{Settings.currency}", new Vector2()
                 {
-                    X = location.x + location.width - padding * 2 - location.Outline,
+                    X = renderLocation.x + renderLocation.width - padding * 2 - renderLocation.Outline,
 
-                    Y = location.y + location.width / 2 - location.Outline - padding * 2
+                    Y = renderLocation.y + renderLocation.width / 2 - renderLocation.Outline - padding * 2
                 }, new Vector2()
                 {
                     X = 0,
@@ -128,22 +124,22 @@ namespace monoos.src.Render
 
         public BoardRectangle GetBottomColorRectangle()
         {
-            return new BoardRectangle(location.x, location.y, location.width, (int)(location.height - location.height * CIProportion), property.ColorSet, 8);
+            return new BoardRectangle(renderLocation.x, renderLocation.y, renderLocation.width, (int)(renderLocation.height - renderLocation.height * CIProportion), property.ColorSet, 8);
         }
 
         public BoardRectangle GetLeftColorRectangle()
         {
-            return new BoardRectangle(location.x + (int)(location.width * CIProportion), location.y, (int)(location.width - (location.width * CIProportion)), location.height, property.ColorSet, 8);
+            return new BoardRectangle(renderLocation.x + (int)(renderLocation.width * CIProportion), renderLocation.y, (int)(renderLocation.width - (renderLocation.width * CIProportion)), renderLocation.height, property.ColorSet, 8);
         }
 
         public BoardRectangle GetTopColorRectangle()
         {
-            return new BoardRectangle(location.x, location.y + (int)(location.height * CIProportion), location.width, (int)(location.height - location.height * CIProportion), property.ColorSet, 8);
+            return new BoardRectangle(renderLocation.x, renderLocation.y + (int)(renderLocation.height * CIProportion), renderLocation.width, (int)(renderLocation.height - renderLocation.height * CIProportion), property.ColorSet, 8);
         }
 
         public BoardRectangle GetRightColorRectangle()
         {
-            return new BoardRectangle(location.x, location.y, (int)(location.width - (location.width * CIProportion)), location.height, property.ColorSet, 8);
+            return new BoardRectangle(renderLocation.x, renderLocation.y, (int)(renderLocation.width - (renderLocation.width * CIProportion)), renderLocation.height, property.ColorSet, 8);
         }
     }
 }

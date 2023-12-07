@@ -8,15 +8,11 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Render.LocationRenderers
 {
-    internal class RailRoadPropertyRender : ConcreteRender<RailRoadProperty>
+    internal class RailRoadPropertyRender(RailRoadProperty locationInfo, BoardRectangle locationRender) : ConcreteRender<RailRoadProperty>(locationInfo, locationRender)
     {
-        public RailRoadPropertyRender(RailRoadProperty prop, BoardRectangle br) : base(prop, br)
-        {
-        }
-
         public override void RenderLocation()
         {
-            throw new NotImplementedException();
+            LoadTexture(locationInfo.square);
         }
     }
 }

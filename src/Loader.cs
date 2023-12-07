@@ -1,9 +1,12 @@
 ﻿using monoos.src.Game;
 using monoos.src.Render;
 using Newtonsoft.Json;
+using Raylib_cs;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,6 +47,18 @@ namespace monoos.src
             {
                 return null;
             }
+        }
+
+        public Dictionary<String, Texture2D> GetTextures()
+        {
+            Dictionary<String, Texture2D> textures = new();
+            string[] files = Directory.GetFiles(Environment.CurrentDirectory + settings.TexturePath);
+            for (int i = 0; i < files.Length; i++)
+            {
+                textures.Add(Util.GetFileName(files[i]), Raylib.LoadTexture(files[i]));
+            }
+
+            return textures;
         }
     }
 }
