@@ -14,7 +14,7 @@
     {
       "$type": "monoos.src.Game.EventLocations.CommunityLocation, monoos",
       "name": "Community Chest",
-      "square": 33
+      "square": 32
     },
     {
       "$type": "monoos.src.Game.EventLocations.TaxLocation, monoos",

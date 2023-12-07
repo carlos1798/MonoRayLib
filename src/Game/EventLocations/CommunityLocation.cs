@@ -1,4 +1,5 @@
-﻿using Raylib_cs;
+﻿using monoos.src.Render.LocationRenderers;
+using Raylib_cs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace monoos.src.Game.EventLocations
 
         public override void LocationRender(Board board)
         {
-            Console.WriteLine("CommunityChest");
+            new CommunityChestRender(this, board.render.Squares[square], board.textures).RenderLocation();
         }
     }
 }

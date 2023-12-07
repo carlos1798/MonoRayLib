@@ -18,6 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="src\Resources\Default\Properties.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\Resources\Default\SpecialSquares.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="src\Resources\Default\Textures\Chance1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -26,6 +32,9 @@
     </None>
     <None Update="src\Resources\Default\Textures\Chance3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="src\Resources\Default\Textures\CommunityChest.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="src\Resources\Default\Textures\Train.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
