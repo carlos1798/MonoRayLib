@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Render
 {
-    public class StreetPropertyRender(StreetProperty property, BoardRectangle renderLocation) : ConcreteRender<StreetProperty>(property, renderLocation)
+    public class StreetPropertyRender(StreetProperty property, BoardRectangle renderLocation, Dictionary<string, Texture2D> textures) : ConcreteRender<StreetProperty>(property, renderLocation, textures)
     {
         private const double CIProportion = 0.7;
         private const int padding = 5;

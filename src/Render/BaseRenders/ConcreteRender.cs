@@ -14,31 +14,72 @@ namespace monoos.src.Render.BaseRenders
     {
         public T locationInfo;
         public BoardRectangle locationRender;
+        public Dictionary<String, Texture2D> textures;
         public Texture2D texture;
 
-        protected ConcreteRender(T location, BoardRectangle br)
+        protected ConcreteRender(T location, BoardRectangle br, Dictionary<string, Texture2D> textures)
         {
             this.locationInfo = location;
             this.locationRender = br;
+            this.textures = textures;
         }
 
         public abstract void RenderLocation();
 
-        public void LoadTexture(int square)
+        public void LoadMainTexture(int square, string textKey)
         {
+            var texture = textures[textKey];
+            float destinyX = 0;
+            float destinyY = 0;
+            float destinyWidth = 0;
+            float destinyHeight = 0;
+
             int rotation = 0;
-            int frameWidth = text.Width;
-            int frameHeight = text.Height;
+            int frameWidth = texture.Width;
+            int frameHeight = texture.Height;
 
             Rectangle textureParms = new(0.0f, 0.0f, frameWidth, frameHeight);
 
-            Rectangle textureDestination = new(locationRender.x / 2, locationRender.y / 2, locationRender.width, locationRender.height);
+            destinyWidth = locationRender.width / 2;
+            destinyHeight = locationRender.height / 2;
 
-            Raylib.DrawTexturePro(text, textureParms, textureDestination, new Vector2()
+            if (square > 0 && square <= 9)
+            {
+                destinyX = (locationRender.x + locationRender.width) + (locationRender.width / 4);
+                destinyY = (locationRender.y + locationRender.height) + (locationRender.height / 2) - (locationRender.Outline * 5);
+                rotation = 0;
+            }
+            else if (square > 10 && square <= 19)
+            {
+                destinyX = locationRender.x + locationRender.Outline * 2;
+
+                destinyY = locationRender.y + locationRender.height + (locationRender.Outline * 9);
+                destinyWidth = locationRender.height / 2;
+                destinyHeight = locationRender.width / 2;
+
+                rotation = 90;
+            }
+            else if (square > 20 && square <= 29)
+            {
+                destinyX = locationRender.x - (locationRender.Outline * 3);
+                destinyY = (locationRender.y - locationRender.height) + (locationRender.height / 2) + (locationRender.Outline * 5);
+                rotation = 180;
+            }
+            else if (square > 30 && square <= 39)
+            {
+                destinyX = (locationRender.x + locationRender.width) - (locationRender.Outline);
+                destinyY = locationRender.y - locationRender.height / 2 - (locationRender.Outline * 3);
+                destinyWidth = locationRender.height / 2;
+                destinyHeight = locationRender.width / 2;
+                rotation = 270;
+            }
+
+            Rectangle textureDestination = new(destinyX, destinyY, destinyWidth, destinyHeight);
+            Raylib.DrawTexturePro(texture, textureParms, textureDestination, new Vector2()
             {
                 X = locationRender.width,
                 Y = locationRender.height
-            }, 0, Color.SKYBLUE);
+            }, rotation, Color.WHITE);
         }
 
         public string FormatName(string input)

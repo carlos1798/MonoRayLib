@@ -1,5 +1,6 @@
 ﻿using monoos.src.Game.PropertiesTypes;
 using monoos.src.Render.BaseRenders;
+using Raylib_cs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Render.LocationRenderers
 {
-    internal class RailRoadPropertyRender(RailRoadProperty locationInfo, BoardRectangle locationRender) : ConcreteRender<RailRoadProperty>(locationInfo, locationRender)
+    internal class RailRoadPropertyRender(RailRoadProperty locationInfo, BoardRectangle locationRender, Dictionary<string, Texture2D> textures) : ConcreteRender<RailRoadProperty>(locationInfo, locationRender, textures)
     {
         public override void RenderLocation()
         {
-            LoadTexture(locationInfo.square);
+            LoadMainTexture(locationInfo.square, "Train");
         }
     }
 }

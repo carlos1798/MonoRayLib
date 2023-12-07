@@ -40,7 +40,7 @@ namespace monoos.src.Game.PropertiesTypes
 
         public override void LocationRender(Board board)
         {
-            new RailRoadPropertyRender(this, board.render.Squares[square]).RenderLocation();
+            new RailRoadPropertyRender(this, board.render.Squares[square], board.textures).RenderLocation();
         }
     }
 }
