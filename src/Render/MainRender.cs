@@ -2,6 +2,7 @@
 using monoos.src.Game.PropertiesTypes;
 using monoos.src.Render;
 using Raylib_cs;
+using System;
 using System.Net;
 using System.Numerics;
 
@@ -15,6 +16,11 @@ public class MainRender
     private bool firstTime = true;
     private Dices dices;
     private int cameraSpeed = 10;
+    private float targetWorldAngle = 0;
+    private bool useTargetWorldAngle = false;
+    private Vector2 worldVector = new() { X = 0.0f, Y = 0.0f };
+    private Vector2 worldpoint = new() { X = 0.0f, Y = 0.0f };
+    private float worldAngle = 0;
 
     public MainRender(Settings settings)
     {
@@ -65,10 +71,16 @@ public class MainRender
             prevMousePos = thisPos;
 
             if (Raylib.IsMouseButtonDown(0))
+            {
                 camera.Target = Raylib.GetScreenToWorld2D(Vector2.Add(camera.Offset, delta), camera);
+            }
+
+            if (Raylib.IsMouseButtonDown(MouseButton.MOUSE_BUTTON_RIGHT))
+            {
+                camera.Rotation += (delta.X - delta.Y) / 10;
+            }
 
             Raylib.DrawCircle((int)camera.Target.X, (int)camera.Target.Y, 10, Color.RED);
-            // Camera rotation controls
             if (Raylib.IsKeyDown(KeyboardKey.KEY_Q)) camera.Rotation--;
             else if (Raylib.IsKeyDown(KeyboardKey.KEY_E)) camera.Rotation++;
 
@@ -76,13 +88,8 @@ public class MainRender
             if (Raylib.IsKeyDown(KeyboardKey.KEY_D)) camera.Target.X += cameraSpeed;
             if (Raylib.IsKeyDown(KeyboardKey.KEY_W)) camera.Target.Y -= cameraSpeed;
             if (Raylib.IsKeyDown(KeyboardKey.KEY_S)) camera.Target.Y += cameraSpeed;
-
-            // Limit camera rotation to 80 degrees (-40 to 40)
-
-            // Camera zoom con
             camera.Zoom += ((float)Raylib.GetMouseWheelMove() * 0.05f);
 
-            // Camera reset (zoom and rotation)
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_R))
             {
                 camera.Zoom = 1.0f;

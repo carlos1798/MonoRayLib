@@ -24,7 +24,7 @@ namespace monoos.src.Game.EventLocations
 
         public override void LocationRender(Board board)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Tax1");
         }
     }
 }

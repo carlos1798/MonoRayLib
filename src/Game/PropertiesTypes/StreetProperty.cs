@@ -43,7 +43,7 @@ namespace monoos.src.Game.PropertiesTypes
 
         public override void LocationRender(Board board)
         {
-            new StreetPropertyRender(this, board.render.Squares[square]).RedenderLocation();
+            new StreetPropertyRender(this, board.render.Squares[square]).RenderLocation();
         }
 
         public override void PayRent(Player player)

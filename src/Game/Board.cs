@@ -1,7 +1,7 @@
-using monoos;
 using monoos.src;
 using monoos.src.Game;
 using monoos.src.Render;
+using monoos.src.Render.BaseRenders;
 using monoos.src.Render.LocationRenderers;
 
 public class Board

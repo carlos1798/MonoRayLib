@@ -39,7 +39,7 @@ namespace monoos.src.Game.PropertiesTypes
 
         public override void LocationRender(Board board)
         {
-            Console.WriteLine("Railroad");
+            new RailRoadPropertyRender(this, board.render.Squares[square]).RenderLocation();
         }
     }
 }

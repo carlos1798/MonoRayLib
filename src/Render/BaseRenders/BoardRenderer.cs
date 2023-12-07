@@ -9,7 +9,7 @@ using monoos.src.Render.LocationRenderers;
 using Raylib_cs;
 using Color = Raylib_cs.Color;
 
-namespace monoos;
+namespace monoos.src.Render.BaseRenders;
 
 public class BoardRenderer
 {
@@ -123,7 +123,7 @@ public class BoardRenderer
     internal void CalculateBottomLocations()
     {
         int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
-        int NewPos = roadBoard.x + propertyPos + (setting.OutlineSize / 2);
+        int NewPos = roadBoard.x + propertyPos + setting.OutlineSize / 2;
 
         int firstPosition = JailSquare.x + JailSquare.width - setting.OutlineSize / 2;
         for (int i = 1; i < 10; i++)
@@ -153,7 +153,7 @@ public class BoardRenderer
     internal void CalculateTopLocations()
     {
         int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
-        int NewPos = roadBoard.x + propertyPos + (setting.OutlineSize / 2);
+        int NewPos = roadBoard.x + propertyPos + setting.OutlineSize / 2;
         int firstPosition = ParkingSquare.x + ParkingSquare.width - setting.OutlineSize / 2;
         for (int i = 1; i < 10; i++)
         {
@@ -182,7 +182,7 @@ public class BoardRenderer
     internal void CalculateLeftLocations()
     {
         int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
-        int NewPos = roadBoard.y + propertyPos + (setting.OutlineSize / 2);
+        int NewPos = roadBoard.y + propertyPos + setting.OutlineSize / 2;
         int firstPosition = ParkingSquare.y + ParkingSquare.height - setting.OutlineSize / 2;
 
         for (int i = 1; i < 10; i++)
@@ -212,7 +212,7 @@ public class BoardRenderer
     internal void CalculateRightLocations()
     {
         int propertyPos = roadBoard.width / 9 - setting.OutlineSize / 2 + 2;
-        int NewPos = roadBoard.y + propertyPos + (setting.OutlineSize / 2);
+        int NewPos = roadBoard.y + propertyPos + setting.OutlineSize / 2;
         int firstPosition = GoToJailSquare.y + GoToJailSquare.height - setting.OutlineSize / 2;
 
         for (int i = 1; i < 10; i++)

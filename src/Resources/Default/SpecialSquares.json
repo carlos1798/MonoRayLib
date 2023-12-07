@@ -1,0 +1,69 @@
+{
+  "$type": "System.Collections.Generic.List`1[[monoos.src.Game.Location, monoos]], System.Private.CoreLib",
+  "$values": [
+    {
+      "$type": "monoos.src.Game.EventLocations.CommunityLocation, monoos",
+      "name": "Community Chest",
+      "square": 2
+    },
+    {
+      "$type": "monoos.src.Game.EventLocations.CommunityLocation, monoos",
+      "name": "Community Chest",
+      "square": 17
+    },
+    {
+      "$type": "monoos.src.Game.EventLocations.CommunityLocation, monoos",
+      "name": "Community Chest",
+      "square": 33
+    },
+    {
+      "$type": "monoos.src.Game.EventLocations.TaxLocation, monoos",
+      "name": "Income Tax",
+      "square": 4,
+      "Amount": 200
+    },
+    {
+      "$type": "monoos.src.Game.EventLocations.TaxLocation, monoos",
+      "name": "Super Tax",
+      "square": 38,
+      "Amount": 0
+    },
+    {
+      "$type": "monoos.src.Game.EventLocations.ChanceLocation, monoos",
+      "name": "Chance",
+      "square": 7
+    },
+    {
+      "$type": "monoos.src.Game.EventLocations.ChanceLocation, monoos",
+      "name": "Chance",
+      "square": 22
+    },
+    {
+      "$type": "monoos.src.Game.EventLocations.ChanceLocation, monoos",
+      "name": "Chance",
+      "square": 36
+    },
+    {
+      "$type": "monoos.src.Game.EventLocations.BigSquareLocations.GoToJailLocation, monoos",
+      "name": "Go To Jail",
+      "square": 30
+    },
+    {
+      "$type": "monoos.src.Game.EventLocations.BigSquareLocations.JailLocation, monoos",
+      "fine": 50,
+      "name": "Go To Jail",
+      "square": 10
+    },
+    {
+      "$type": "monoos.src.Game.EventLocations.BigSquareLocations.ParkingLocation, monoos",
+      "name": "Parking",
+      "square": 20
+    },
+    {
+      "$type": "monoos.src.Game.EventLocations.BigSquareLocations.StartLocation, monoos",
+      "collection": 200,
+      "name": "GO",
+      "square": 0
+    }
+  ]
+}

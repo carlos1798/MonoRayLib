@@ -1,18 +1,17 @@
-﻿using monoos.src.Game.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace monoos.src.Game.EventLocations
+namespace monoos.src.Game.EventLocations.BigSquareLocations
 {
-    public class ChanceLocation : EventLocation, IEvent
+    public class StartLocation : EventLocation
     {
-        public ChanceLocation(string name, int square) : base(name, square)
+        public int collection;
+
+        public StartLocation(string name, int square) : base(name, square)
         {
-            this.name = name;
-            this.square = square;
         }
 
         public override void ExecuteEvent(Player player)
@@ -22,7 +21,7 @@ namespace monoos.src.Game.EventLocations
 
         public override void LocationRender(Board board)
         {
-            Console.WriteLine("Chance");
+            Console.WriteLine("start");
         }
     }
 }

@@ -10,8 +10,12 @@ namespace monoos.src.Game.EventLocations
 {
     public class CommunityLocation : EventLocation
     {
+        private Texture2D chestTex;
+
         public CommunityLocation(string name, int square) : base(name, square)
         {
+            this.name = name;
+            this.square = square;
         }
 
         public override void ExecuteEvent(Player player)
@@ -21,7 +25,7 @@ namespace monoos.src.Game.EventLocations
 
         public override void LocationRender(Board board)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("CommunityChest");
         }
     }
 }

@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <Folder Include="src\Game\NewFolder\" />
-    <Folder Include="src\Resources\Default\" />
+    <Folder Include="src\Resources\Default\Textures\" />
   </ItemGroup>
 
 </Project>
