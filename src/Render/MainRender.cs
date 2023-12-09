@@ -1,6 +1,7 @@
 ﻿using monoos.src.Game;
 using monoos.src.Game.PropertiesTypes;
 using monoos.src.Render;
+using monoos.src.Render.Interface;
 using Raylib_cs;
 using System;
 using System.Net;
@@ -16,11 +17,9 @@ public class MainRender
     private bool firstTime = true;
     private Dices dices;
     private int cameraSpeed = 10;
-    private float targetWorldAngle = 0;
-    private bool useTargetWorldAngle = false;
-    private Vector2 worldVector = new() { X = 0.0f, Y = 0.0f };
-    private Vector2 worldpoint = new() { X = 0.0f, Y = 0.0f };
-    private float worldAngle = 0;
+    private PlayerScore score = new();
+
+    private BillRender br = new BillRender();
 
     public MainRender(Settings settings)
     {
@@ -63,6 +62,7 @@ public class MainRender
             board.render.Draw();
 
             board.RenderLocations();
+            br.renderBill(board.textures);
 
             Vector2 thisPos = Raylib.GetMousePosition();
 
@@ -116,7 +116,9 @@ public class MainRender
 
                 player.render.RenderPlayer();
             }
+            Raylib.EndMode2D();
 
+            score.DrawPlayerMoney();
             Raylib.EndDrawing();
         }
 

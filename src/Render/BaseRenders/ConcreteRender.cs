@@ -45,36 +45,6 @@ namespace monoos.src.Render.BaseRenders
             destinyWidth = locationRender.width - locationRender.Outline;
             destinyHeight = locationRender.height - locationRender.Outline * 2;
 
-            //if (square > 0 && square <= 9)
-            //{
-            //    destinyX = (locationRender.x + locationRender.width) + (locationRender.width / 4);
-            //    destinyY = (locationRender.y + locationRender.height) + (locationRender.height / 2) - (locationRender.Outline * 5);
-            //    rotation = 0;
-            //}
-            //else if (square > 10 && square <= 19)
-            //{
-            //    destinyX = locationRender.x + locationRender.Outline;
-            //    destinyY = locationRender.y + locationRender.height + (locationRender.Outline * 9);
-            //    destinyWidth = locationRender.height / 2;
-            //    destinyHeight = locationRender.width / 2;
-
-            //    rotation = 90;
-            //}
-            //else if (square > 20 && square <= 29)
-            //{
-            //    destinyX = locationRender.x - (locationRender.Outline * 3);
-            //    destinyY = (locationRender.y - locationRender.height) + (locationRender.height / 2) + (locationRender.Outline * 5);
-            //    rotation = 180;
-            //}
-            //else if (square > 30 && square <= 39)
-            //{
-            //    destinyX = (locationRender.x + locationRender.width) - (locationRender.Outline);
-            //    destinyY = locationRender.y - locationRender.height / 2 - (locationRender.Outline * 3);
-            //    destinyWidth = locationRender.height / 2;
-            //    destinyHeight = locationRender.width / 2;
-            //    rotation = 270;
-            //}
-
             Rectangle textureDestination = new(destinyX, destinyY, destinyWidth, destinyHeight);
             Raylib.DrawTexturePro(texture, textureParms, textureDestination, new Vector2()
             {
