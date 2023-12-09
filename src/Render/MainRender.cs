@@ -62,7 +62,12 @@ public class MainRender
             board.render.Draw();
 
             board.RenderLocations();
-            br.renderBill(board.textures);
+            br.renderBill(board.textures, "500Bill", 100, 100, 0);
+            br.renderBill(board.textures, "100Bill", 100, 200, 0);
+            br.renderBill(board.textures, "50Bill", 100, 300, 0);
+            br.renderBill(board.textures, "20Bill", 100, 400, 0);
+            br.renderBill(board.textures, "5Bill", 100, 500, 0);
+            br.renderBill(board.textures, "1Bill", 100, 600, 0);
 
             Vector2 thisPos = Raylib.GetMousePosition();
 

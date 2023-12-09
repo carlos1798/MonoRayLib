@@ -10,32 +10,20 @@ namespace monoos.src.Render
 {
     public class BillRender
     {
+        private float billWidth = 250;
+        private float billHeight = 150;
+
         public BillRender()
         {
         }
 
-        public void renderBill(Dictionary<String, Texture2D> textures)
+        public void renderBill(Dictionary<String, Texture2D> textures, string bill, float x, float y, int rotation)
         {
-            var textKey = "100Bill";
-            var texture = textures[textKey];
-
-            float destinyX = 0;
-            float destinyY = 0;
-            float destinyWidth = 0;
-            float destinyHeight = 0;
-
-            int rotation = 0;
+            var texture = textures[bill];
             int frameWidth = texture.Width;
             int frameHeight = texture.Height;
-
             Rectangle textureParms = new(0.0f, 0.0f, frameWidth, frameHeight);
-
-            destinyX = 100;
-            destinyY = 100;
-            destinyWidth = frameWidth;
-            destinyHeight = frameHeight;
-
-            Rectangle textureDestination = new(destinyX, destinyY, destinyWidth, destinyHeight);
+            Rectangle textureDestination = new(x, y, billWidth, billHeight);
             Raylib.DrawTexturePro(texture, textureParms, textureDestination, new Vector2()
             {
                 X = 0,
