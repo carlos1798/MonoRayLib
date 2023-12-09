@@ -27,6 +27,9 @@
     <None Update="src\Resources\Default\Textures\100Bill.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="src\Resources\Default\Textures\10Bill.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="src\Resources\Default\Textures\1Bill.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
