@@ -19,6 +19,8 @@ public class MainRender
     private int cameraSpeed = 10;
     private PlayerScore score = new();
 
+    private Vector2 mousePos;
+    private Bill test;
     private BillRender br = new BillRender();
 
     public MainRender(Settings settings)
@@ -39,6 +41,8 @@ public class MainRender
         Raylib.SetTargetFPS(60);
         board.LoadLocationInfo();
         board.LoadTextures();
+        test = new Bill(100, Bill.BillType.FIVE, players[0], 100f, 100f);
+
         mainLoop();
     }
 
@@ -46,42 +50,38 @@ public class MainRender
     {
         Camera2D camera = new();
         camera.Target = new Vector2() { X = board.render.Xcenter + setting.OutlineSize * 2, Y = board.render.Ycenter + setting.OutlineSize * 4 };
-
         camera.Offset = new Vector2() { X = setting.ScreenWidth / 2.0f, Y = setting.ScreenHeight / 2.0f };
         camera.Rotation = 0.0f;
         camera.Zoom = 1.0f;
         Vector2 prevMousePos = Raylib.GetMousePosition();
+        br.SpawnStartingBills(players);
 
         while (!Raylib.WindowShouldClose())
         {
             Raylib.BeginDrawing();
             Raylib.BeginMode2D(camera);
-            Raylib.DrawFPS(setting.ScreenWidth - 100, setting.ScreenHeight + 100);
             Raylib.ClearBackground(Color.WHITE);
 
             board.render.Draw();
 
             board.RenderLocations();
-            br.renderBill(board.textures, "500Bill", 100, 100, 0);
-            br.renderBill(board.textures, "100Bill", 100, 200, 0);
-            br.renderBill(board.textures, "50Bill", 100, 300, 0);
-            br.renderBill(board.textures, "20Bill", 100, 400, 0);
-            br.renderBill(board.textures, "5Bill", 100, 500, 0);
-            br.renderBill(board.textures, "1Bill", 100, 600, 0);
 
-            Vector2 thisPos = Raylib.GetMousePosition();
+            br.renderAllBills(players, board.textures);
+            mousePos = Raylib.GetMousePosition();
 
-            Vector2 delta = Vector2.Subtract(prevMousePos, thisPos);
-            prevMousePos = thisPos;
+            Vector2 delta = Vector2.Subtract(prevMousePos, mousePos);
+            prevMousePos = mousePos;
 
-            if (Raylib.IsMouseButtonDown(0))
+            Vector2 mousePosition = Raylib.GetScreenToWorld2D(Raylib.GetMousePosition(), camera);
+            Raylib.DrawCircleV(mousePosition, 5, Color.BLUE);
+            if (Raylib.IsMouseButtonDown(MouseButton.MOUSE_LEFT_BUTTON))
             {
-                camera.Target = Raylib.GetScreenToWorld2D(Vector2.Add(camera.Offset, delta), camera);
             }
 
             if (Raylib.IsMouseButtonDown(MouseButton.MOUSE_BUTTON_RIGHT))
             {
-                camera.Rotation += (delta.X - delta.Y) / 10;
+                camera.Target = Raylib.GetScreenToWorld2D(Vector2.Add(camera.Offset, delta), camera);
+                //camera.Rotation += (delta.X - delta.Y) / 10;
             }
 
             if (Raylib.IsKeyDown(KeyboardKey.KEY_Q)) camera.Rotation--;
@@ -101,6 +101,10 @@ public class MainRender
 
             foreach (Player player in players)
             {
+                foreach (Bill bill in player.wallet)
+                {
+                    br.HoldBill(bill, camera);
+                }
                 Raylib.DrawText($"Current Square:{player.render.CurrentSquare}", 1200, 500, 20, Color.BLUE);
                 Raylib.DrawText($"Dice  :{dices.DiceNumber1} Dice  : {dices.DiceNumber2}", 1200, 700, 20, Color.BLUE);
                 if (firstTime)

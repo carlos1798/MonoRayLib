@@ -33,7 +33,7 @@ namespace monoos.src.Game.PropertiesTypes
 
         public override void BuyProperty(Player player)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("asd");
         }
 
         public override void Execute(Player player)

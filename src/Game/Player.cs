@@ -21,6 +21,7 @@ namespace monoos.src.Game
         public bool isTurn = false;
         public Dices dices;
         public bool Bankrupt = false;
+        public List<Bill> wallet = new();
 
         public Player(string name, double money, PlayerRender render)
         {

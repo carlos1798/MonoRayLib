@@ -16,8 +16,8 @@ public class Settings
 
     public const int fontSize = 10;
 
-    public int BoardWidth = 1200;
-    public int BoardHeight = 1200;
+    public const int BoardWidth = 1200;
+    public const int BoardHeight = 1200;
 
     public string TexturePath = "\\src\\Resources\\Default\\Textures";
     public const char currency = '$';

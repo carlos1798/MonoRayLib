@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace monoos.src.Render.LocationRenderers
 {
-    internal class RailRoadPropertyRender(RailRoadProperty locationInfo, BoardRectangle locationRender, Dictionary<string, Texture2D> textures) : ConcreteRender<RailRoadProperty>(locationInfo, locationRender, textures)
+    internal class RailRoadPropertyRender(RailRoadProperty locationInfo, BoardRectangle locationRender, Dictionary<string, Texture2D> textures) :
+            ConcreteRender<RailRoadProperty>(locationInfo, locationRender, textures)
     {
         public override void RenderLocation()
         {

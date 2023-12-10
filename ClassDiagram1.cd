@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
   <Class Name="Board" Collapsed="true">
     <Position X="11.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -78,13 +78,6 @@
       <FileName>src\Render\Game.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="monoos.MainRender" Collapsed="true">
-    <Position X="6.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AEAAAAAAAEAAAAAAAAAAAAAAAIACAAIAIAAAgAAAAAA=</HashCode>
-      <FileName>src\Render\MainRender.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="monoos.Program" Collapsed="true">
     <Position X="5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
@@ -146,7 +139,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="monoos.src.Game.PropertiesTypes.PropertyLocation" Collapsed="true">
-    <Position X="18.75" Y="2.75" Width="1.5" />
+    <Position X="24.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAABAQAAgBQAAAIAIAAAACAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>src\Game\PropertiesTypes\PropertyLocation.cs</FileName>
@@ -283,21 +276,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="monoos.src.Render.LocationRenderers.ParkingLocationRender" Collapsed="true">
-    <Position X="25.5" Y="7" Width="1.5" />
+    <Position X="17.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Render\LocationRenderers\BigSquareLocationRender.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="monoos.src.Render.LocationRenderers.JailLocationRender" Collapsed="true">
-    <Position X="27.25" Y="7" Width="1.5" />
+    <Position X="19.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Render\LocationRenderers\BigSquareLocationRender.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="monoos.src.Render.LocationRenderers.StartLocationRender" Collapsed="true">
-    <Position X="29.5" Y="7" Width="1.5" />
+  <Class Name="monoos.src.Render.LocationRenderers.d" Collapsed="true">
+    <Position X="22.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Render\LocationRenderers\BigSquareLocationRender.cs</FileName>
@@ -332,11 +325,18 @@
       <FileName>src\Render\LocationRenderers\TaxLocationRender.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="monoos.src.Render.LocationRenderers.UtilityLocationRender" Collapsed="true">
-    <Position X="23.5" Y="7" Width="1.5" />
+  <Class Name="monoos.src.Render.LocationRenderers.UtilityLocationRender">
+    <Position X="16" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Render\LocationRenderers\UtilityLocationRender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.MainRender" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAEAAAAAAAAAIAAAAAIQCAAIIIAAAgAEAAAA=</HashCode>
+      <FileName>src\Render\MainRender.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="monoos.src.Game.IEvent" Collapsed="true">

@@ -33,7 +33,7 @@ namespace monoos.src.Render.LocationRenderers
         }
     }
 
-    internal class StartLocationRender(StartLocation location, BoardRectangle br, Dictionary<string, Texture2D> textures) : ConcreteRender<StartLocation>(location, br, textures)
+    internal class d(StartLocation location, BoardRectangle br, Dictionary<string, Texture2D> textures) : ConcreteRender<StartLocation>(location, br, textures)
     {
         public override void RenderLocation()
         {

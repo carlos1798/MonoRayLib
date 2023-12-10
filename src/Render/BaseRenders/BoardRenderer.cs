@@ -42,8 +42,8 @@ public class BoardRenderer
 
     public void SetBoardParams()
     {
-        BoardHeight = setting.BoardHeight;
-        BoardWidth = setting.BoardWidth;
+        BoardHeight = Settings.BoardHeight;
+        BoardWidth = Settings.BoardWidth;
 
         BoardPosX = 30;// setting.CenterX - BoardHeight / 2;
         BoardPosY = 50;// setting.CenterY - BoardHeight / 2;

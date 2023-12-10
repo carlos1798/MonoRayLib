@@ -22,7 +22,7 @@ namespace monoos.src.Game.EventLocations.BigSquareLocations
 
         public override void LocationRender(Board board)
         {
-            new StartLocationRender(this, board.render.Squares[square], board.textures).RenderLocation();
+            new d(this, board.render.Squares[square], board.textures).RenderLocation();
         }
     }
 }
