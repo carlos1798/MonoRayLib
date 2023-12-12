@@ -2,9 +2,7 @@ using monoos.src;
 using monoos.src.Game;
 using monoos.src.Render;
 using monoos.src.Render.BaseRenders;
-using monoos.src.Render.LocationRenderers;
 using Raylib_cs;
-using System.Runtime.Versioning;
 
 public class Board
 {

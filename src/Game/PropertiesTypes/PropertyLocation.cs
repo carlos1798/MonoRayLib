@@ -1,14 +1,4 @@
-﻿using monoos.src.Game.Interfaces;
-using Newtonsoft.Json;
-using Raylib_cs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace monoos.src.Game.PropertiesTypes
+﻿namespace monoos.src.Game.PropertiesTypes
 {
     public abstract class PropertyLocation : Location
     {

@@ -1,6 +1,4 @@
-﻿using Raylib_cs;
-
-namespace monoos.src.Render;
+﻿namespace monoos.src.Render;
 
 public class Settings
 {

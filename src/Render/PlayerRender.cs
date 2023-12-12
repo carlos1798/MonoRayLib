@@ -1,13 +1,6 @@
 ﻿using monoos.src.Render.BaseRenders;
 using Raylib_cs;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Numerics;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace monoos.src.Render
 {
@@ -17,8 +10,8 @@ namespace monoos.src.Render
         private const int MAX_SQUARES = 39;
         private BoardRenderer board;
 
-        public int CurrentSquare = 30;
-        public int TargetSquare = 34;
+        public int CurrentSquare = 0;
+        public int TargetSquare = 0;
         public int TargetCicles = 0;
 
         private Vector2 Speed = new() { X = 2, Y = 2 };

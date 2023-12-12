@@ -1,11 +1,6 @@
 ﻿using monoos.src.Render;
 using Raylib_cs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace monoos.src.Game
 {
@@ -29,7 +24,6 @@ namespace monoos.src.Game
             this.type = type;
             this.spriteName = getSpriteName(type);
             this.owner = owner;
-
             rec = new(x, y, 200f, 100f);
         }
 

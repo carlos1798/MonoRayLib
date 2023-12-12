@@ -1,12 +1,6 @@
 ﻿using monoos.src.Game.Interfaces;
 using monoos.src.Render;
 using Raylib_cs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace monoos.src.Game.PropertiesTypes
 {

@@ -2,13 +2,6 @@
 using monoos.src.Render;
 using Newtonsoft.Json;
 using Raylib_cs;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace monoos.src
 {

@@ -1,13 +1,4 @@
-﻿using System.ComponentModel.Design;
-using System.Drawing;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.Marshalling;
-using monoos.src.Render;
-using monoos.src.Render.LocationRenderers;
-using Raylib_cs;
-using Color = Raylib_cs.Color;
+﻿using Color = Raylib_cs.Color;
 
 namespace monoos.src.Render.BaseRenders;
 

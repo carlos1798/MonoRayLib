@@ -1,12 +1,6 @@
 ﻿using monoos.src.Game;
 using Raylib_cs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace monoos.src.Render
 {
@@ -16,8 +10,9 @@ namespace monoos.src.Render
         private float billHeight = 150;
         private bool canHold = true;
         private Bill holdedBill;
+        private Board board;
 
-        public BillRender()
+        public BillRender(Board board)
         {
         }
 
@@ -103,8 +98,8 @@ namespace monoos.src.Render
             int deviation = 50;
             foreach (Player player in players)
             {
-                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.ONE, player, 100, 100 + deviation));
-                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.ONE, player, player.wallet.Last().position.X + 100, player.wallet.Last().position.Y + deviation));
+                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.ONE, player, 100, 100));
+                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.ONE, player, 1, player.wallet.Last().position.Y + deviation));
                 player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.ONE, player, player.wallet.Last().position.X + 100, player.wallet.Last().position.Y + deviation));
                 player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.ONE, player, player.wallet.Last().position.X + 100, player.wallet.Last().position.Y + deviation));
                 player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.ONE, player, player.wallet.Last().position.X + 100, player.wallet.Last().position.Y + deviation));

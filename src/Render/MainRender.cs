@@ -1,10 +1,7 @@
 ﻿using monoos.src.Game;
-using monoos.src.Game.PropertiesTypes;
 using monoos.src.Render;
 using monoos.src.Render.Interface;
 using Raylib_cs;
-using System;
-using System.Net;
 using System.Numerics;
 
 namespace monoos;
@@ -21,7 +18,7 @@ public class MainRender
 
     private Vector2 mousePos;
     private Bill test;
-    private BillRender br = new BillRender();
+    private BillRender br;
 
     public MainRender(Settings settings)
     {
@@ -31,9 +28,12 @@ public class MainRender
 
     public void init()
     {
+        br = new(board);
         board.render.SetBoardParams();
         dices = new(setting);
-        players.Add(new("carlos", 1500, new(setting, board.render)));
+        players.Add(new("carlos", 1500, Player.PlayerPosition.BOTTOM, board, setting));
+        players.Add(new("elDiablo", 1500, Player.PlayerPosition.BOTTOM, board, setting));
+
         Raylib.SetConfigFlags(ConfigFlags.FLAG_MSAA_4X_HINT);
 
         Raylib.InitWindow(setting.ScreenWidth, setting.ScreenHeight, "Monooo");
@@ -54,6 +54,7 @@ public class MainRender
         camera.Rotation = 0.0f;
         camera.Zoom = 1.0f;
         Vector2 prevMousePos = Raylib.GetMousePosition();
+        players.First().isTurn = true;
         br.SpawnStartingBills(players);
 
         while (!Raylib.WindowShouldClose())
@@ -105,7 +106,10 @@ public class MainRender
                 {
                     br.HoldBill(bill, camera);
                 }
-                Raylib.DrawText($"Current Square:{player.render.CurrentSquare}", 1200, 500, 20, Color.BLUE);
+
+                Raylib.DrawText($"Current Player:{player.name}", 1700, 500, 20, Color.BLUE);
+                Raylib.DrawText($"Current Square:{player.render.CurrentSquare}", 1700, 500, 20, Color.BLUE);
+                Raylib.DrawText($"Current Square:{player.render.CurrentSquare}", 1600, 500, 20, Color.BLUE);
                 Raylib.DrawText($"Dice  :{dices.DiceNumber1} Dice  : {dices.DiceNumber2}", 1200, 700, 20, Color.BLUE);
                 if (firstTime)
                 {
@@ -113,24 +117,24 @@ public class MainRender
                     firstTime = false;
                 }
                 else
-                {
-                    if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
-                    {
-                        player.Turn(Player.PlayerAction.BUY_PROPERTY, board);
-                        dices.RollDices();
-                        player.render.SetDiceResult(dices.DiceNumber1 + dices.DiceNumber2);
-                    }
-                }
+                { }
                 player.render.GoToTargetSquare();
 
                 player.render.RenderPlayer();
             }
-            Raylib.EndMode2D();
 
-            score.DrawPlayerMoney();
-            Raylib.EndDrawing();
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
+            {
+                if (players.Where(x => x.isTurn == true).First().Turn(Player.PlayerAction.BUY_PROPERTY, board, ref camera))
+                {
+                }
+
+                Raylib.EndMode2D();
+
+                score.DrawPlayerMoney();
+                Raylib.EndDrawing();
+            }
+
+            Raylib.CloseWindow();
         }
-
-        Raylib.CloseWindow();
     }
-}
