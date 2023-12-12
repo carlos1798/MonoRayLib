@@ -15,6 +15,7 @@ public class MainRender
     private Dices dices;
     private int cameraSpeed = 10;
     private PlayerScore score = new();
+    private Game game;
 
     private Vector2 mousePos;
     private Bill test;
@@ -102,6 +103,7 @@ public class MainRender
 
             foreach (Player player in players)
             {
+                //Hay que hacer algo con esta mierda
                 foreach (Bill bill in player.wallet)
                 {
                     br.HoldBill(bill, camera);
@@ -127,14 +129,13 @@ public class MainRender
             {
                 if (players.Where(x => x.isTurn == true).First().Turn(Player.PlayerAction.BUY_PROPERTY, board, ref camera))
                 {
+                    //Usa la puta clase game fucking becario
                 }
-
-                Raylib.EndMode2D();
-
-                score.DrawPlayerMoney();
-                Raylib.EndDrawing();
             }
 
-            Raylib.CloseWindow();
+            Raylib.EndMode2D();
+            Raylib.EndDrawing();
         }
+        Raylib.CloseWindow();
     }
+}

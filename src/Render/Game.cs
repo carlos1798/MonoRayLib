@@ -9,6 +9,8 @@ public class Game
     private Board Board;
     private Settings settings;
 
+    //Aqui tambien deberia spawnear los billetes
+
     public Game(Player[] players, Board board, Settings settings)
     {
         Players = players;

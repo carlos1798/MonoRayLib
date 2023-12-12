@@ -31,7 +31,7 @@
   <Class Name="monoos.src.Game.Player" Collapsed="true">
     <Position X="13.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAgAAAAAAAAAAACAAAAAABGAAAAAAAAAAAQEAA=</HashCode>
+      <HashCode>AAIAAAAgAgAAAAAAAAACIAAAAADGAACAIAAAAAIQEAA=</HashCode>
       <FileName>src\Game\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -69,13 +69,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Render\BoardRenderer.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="monoos.Game" Collapsed="true">
-    <Position X="5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACgAAIAAAAgACAAAAA=</HashCode>
-      <FileName>src\Render\Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="monoos.Program" Collapsed="true">
@@ -247,13 +240,6 @@
       <FileName>src\Render\LocationRenderers\RailRoadPropertyRender.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="monoos.src.Render.StreetPropertyRender" Collapsed="true">
-    <Position X="44" Y="7" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAABAAAAAAAAIUAAAACAAAAAACAAE=</HashCode>
-      <FileName>src\Render\LocationRenderers\StreetPropertyRender.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="monoos.src.Loader" Collapsed="true">
     <Position X="44" Y="5" Width="1.5" />
     <TypeIdentifier>
@@ -266,13 +252,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Util.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="monoos.src.Render.LocationRenderers.LocationRender" Collapsed="true">
-    <Position X="38.75" Y="7" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\Render\BaseRenders\LocationRender.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="monoos.src.Render.LocationRenderers.ParkingLocationRender" Collapsed="true">
@@ -330,6 +309,27 @@
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Render\LocationRenderers\UtilityLocationRender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.Game" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACgAAIAAAAgACAAAAA=</HashCode>
+      <FileName>src\Render\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.src.Render.StreetPropertyRender" Collapsed="true">
+    <Position X="44" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAABAAAAAAAAIUAAAACAAAAAACAAE=</HashCode>
+      <FileName>src\Render\LocationRenderers\StreetPropertyRender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="monoos.src.Render.LocationRenderers.LocationRender" Collapsed="true">
+    <Position X="38.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Render\BaseRenders\LocationRender.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="monoos.MainRender" Collapsed="true">
