@@ -2,6 +2,7 @@
 using monoos.src.Render;
 using Raylib_cs;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 
 namespace monoos.src.Game
 {
@@ -34,10 +35,12 @@ namespace monoos.src.Game
         private Camera2D camera;
         private Board board;
         private Settings settings;
+        private bool moving = false;
+        private bool ActionPerformed = false;
 
-        private Color color;
+        public Color color;
 
-        public Player(string name, double money, PlayerPosition position, Board board, Settings settings)
+        public Player(string name, double money, PlayerPosition position, Board board, Settings settings, Color color)
         {
             this.name = name;
             this.money = 1500;
@@ -48,11 +51,14 @@ namespace monoos.src.Game
             this.settings = settings;
             render = new(settings, board.render);
             camera = ConfigPlayerCam();
+            dices = new(settings);
+            this.color = color;
         }
 
         public void SetPlayerCamera(ref Camera2D mainCam)
         {
             mainCam = camera;
+            followPlayer(ref mainCam);
         }
 
         public Camera2D ConfigPlayerCam()
@@ -65,26 +71,49 @@ namespace monoos.src.Game
             return camera;
         }
 
-        public bool Turn(PlayerAction action, Board board, ref Camera2D camera)
+        public void followPlayer(ref Camera2D camera)
+        {
+            if (!this.render.isInTargetSquare() && this.isTurn)
+            {
+                camera.Target = this.render.Position;
+            }
+        }
+
+        public bool isPlayerMoving()
+        {
+            return !this.render.isInTargetSquare();
+        }
+
+        public bool Turn(PlayerAction action, Board board, ref Camera2D camera, ref GameFlow game)
         {
             if (!this.isTurn)
             {
                 return false;
             }
-            else
-            {
-                SetPlayerCamera(ref camera);
-            }
 
-            if (Raylib.IsKeyPressed(KeyboardKey.KEY_COMMA))
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
                 dices.RollDices();
                 this.render.SetDiceResult(dices.DiceNumber1 + dices.DiceNumber2);
+                ActionPerformed = true;
+            }
 
-                isTurn = false;
-                return true;
+            if (isPlayerMoving() && ActionPerformed)
+            {
+                this.followPlayer(ref camera);
+                return false;
+            }
+            else
+            {
+                if (ActionPerformed)
+                {
+                    game.setTurn();
+                    ActionPerformed = false;
+                    return true;
+                }
             }
             return false;
+
             //            switch (action)
             //            {
             //                case PlayerAction.BUY_PROPERTY:

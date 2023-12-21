@@ -15,7 +15,7 @@ public class MainRender
     private Dices dices;
     private int cameraSpeed = 10;
     private PlayerScore score = new();
-    private Game game;
+    private GameFlow game;
 
     private Vector2 mousePos;
     private Bill test;
@@ -32,8 +32,8 @@ public class MainRender
         br = new(board);
         board.render.SetBoardParams();
         dices = new(setting);
-        players.Add(new("carlos", 1500, Player.PlayerPosition.BOTTOM, board, setting));
-        players.Add(new("elDiablo", 1500, Player.PlayerPosition.BOTTOM, board, setting));
+        players.Add(new("carlos", 1500, Player.PlayerPosition.BOTTOM, board, setting, Color.BLUE));
+        players.Add(new("elDiablo", 1500, Player.PlayerPosition.BOTTOM, board, setting, Color.RED));
 
         Raylib.SetConfigFlags(ConfigFlags.FLAG_MSAA_4X_HINT);
 
@@ -43,6 +43,9 @@ public class MainRender
         board.LoadLocationInfo();
         board.LoadTextures();
         test = new Bill(100, Bill.BillType.FIVE, players[0], 100f, 100f);
+
+        game = new(players, board, setting);
+        game.init();
 
         mainLoop();
     }
@@ -68,7 +71,7 @@ public class MainRender
 
             board.RenderLocations();
 
-            br.renderAllBills(players, board.textures);
+            // br.renderAllBills(players, board.textures);
             mousePos = Raylib.GetMousePosition();
 
             Vector2 delta = Vector2.Subtract(prevMousePos, mousePos);
@@ -109,33 +112,34 @@ public class MainRender
                     br.HoldBill(bill, camera);
                 }
 
-                Raylib.DrawText($"Current Player:{player.name}", 1700, 500, 20, Color.BLUE);
-                Raylib.DrawText($"Current Square:{player.render.CurrentSquare}", 1700, 500, 20, Color.BLUE);
-                Raylib.DrawText($"Current Square:{player.render.CurrentSquare}", 1600, 500, 20, Color.BLUE);
-                Raylib.DrawText($"Dice  :{dices.DiceNumber1} Dice  : {dices.DiceNumber2}", 1200, 700, 20, Color.BLUE);
                 if (firstTime)
                 {
                     player.render.GetPosition();
-                    firstTime = false;
+                    if (players.Last() == player)
+                    {
+                        firstTime = false;
+                    }
                 }
-                else
-                { }
+
                 player.render.GoToTargetSquare();
 
-                player.render.RenderPlayer();
+                players.Where(x => x.isTurn == true).First().followPlayer(ref camera);
+                player.render.RenderPlayer(player.color);
             }
 
-            if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
-            {
-                if (players.Where(x => x.isTurn == true).First().Turn(Player.PlayerAction.BUY_PROPERTY, board, ref camera))
-                {
-                    //Usa la puta clase game fucking becario
-                }
-            }
+            if (players.Where(x => x.isTurn == true).First().Turn(Player.PlayerAction.BUY_PROPERTY, board, ref camera, ref game)) ;
 
             Raylib.EndMode2D();
+
+            foreach (var player in players)
+            {
+                if (player.isTurn) Raylib.DrawText($"Current Player:{player.name}", 1200, 200, 20, Color.RED);
+                if (player.isTurn) Raylib.DrawText($"Current Square:{player.render.CurrentSquare}", 1200, 100, 20, Color.RED);
+                if (player.isTurn) Raylib.DrawText($"Dice  :{player.dices.DiceNumber1} Dice  : {player.dices.DiceNumber2}", 1200, 150, 20, Color.RED);
+            }
             Raylib.EndDrawing();
         }
+
         Raylib.CloseWindow();
     }
 }

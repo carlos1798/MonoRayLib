@@ -14,8 +14,10 @@ namespace monoos.src.Render
         public int TargetSquare = 0;
         public int TargetCicles = 0;
 
+        private bool targetReached = true;
+
         private Vector2 Speed = new() { X = 2, Y = 2 };
-        private Vector2 Position;
+        public Vector2 Position;
         private Vector2 nextSquare;
 
         public PlayerRender(Settings settings, BoardRenderer board)
@@ -24,9 +26,14 @@ namespace monoos.src.Render
             this.board = board;
         }
 
-        public void RenderPlayer()
+        public void RenderPlayer(Color color)
         {
-            Raylib.DrawCircleV(Position, 11, Color.BLACK);
+            Raylib.DrawCircleV(Position, 11, color);
+        }
+
+        public bool isInTargetSquare()
+        {
+            return TargetSquare == CurrentSquare;
         }
 
         public void GetPosition()
@@ -125,13 +132,16 @@ namespace monoos.src.Render
                     }
                 }
             }
+            else
+            {
+                targetReached = true;
+            }
         }
 
         public void GoToStart()
         {
             Vector2 newPosition = new Vector2() { X = board.Squares[1].x + board.Squares[1].width / 2, Y = board.Squares[1].y + board.Squares[1].height / 2 };
 
-            Raylib.DrawCircleV(newPosition, 11, Color.BLACK);
             if (newPosition.Y < Position.Y)
             {
                 CurrentSquare = 0;

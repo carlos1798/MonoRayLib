@@ -311,7 +311,7 @@
       <FileName>src\Render\LocationRenderers\UtilityLocationRender.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="monoos.Game" Collapsed="true">
+  <Class Name="monoos.GameFlow" Collapsed="true">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACgAAIAAAAgACAAAAA=</HashCode>
