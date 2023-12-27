@@ -33,7 +33,7 @@ public class MainRender
         board.render.SetBoardParams();
         dices = new(setting);
         players.Add(new("carlos", 1500, Player.PlayerPosition.BOTTOM, board, setting, Color.BLUE));
-        players.Add(new("elDiablo", 1500, Player.PlayerPosition.BOTTOM, board, setting, Color.RED));
+        players.Add(new("elDiablo", 1500, Player.PlayerPosition.RIGHT, board, setting, Color.RED));
 
         Raylib.SetConfigFlags(ConfigFlags.FLAG_MSAA_4X_HINT);
 
@@ -105,7 +105,7 @@ public class MainRender
             foreach (Player player in players)
             {
                 //Hay que hacer algo con esta mierda
-                for (int i = player.wallet.Count-1; i >= 0; i--)
+                for (int i = player.wallet.Count - 1; i >= 0; i--)
                 {
                     br.HoldBill(player.wallet[i], camera, player);
                 }
@@ -135,6 +135,7 @@ public class MainRender
                 if (player.isTurn) Raylib.DrawText($"Current Square:{player.render.CurrentSquare}", 1200, 100, 20, Color.RED);
                 if (player.isTurn) Raylib.DrawText($"Dice  :{player.dices.DiceNumber1} Dice  : {player.dices.DiceNumber2}", 1200, 150, 20, Color.RED);
                 if (player.isTurn) player.UIrender.RenderRollDices();
+                if (player.isTurn) player.UIrender.RenderBuyRec();
             }
 
             Raylib.EndDrawing();

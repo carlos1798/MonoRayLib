@@ -31,7 +31,7 @@ public class Board
 
     public Location GetLocationBySquare(int square)
     {
-        return locations[square];
+        return locations.FirstOrDefault(x => x.square == square);
     }
 
     public void RenderLocations()

@@ -14,12 +14,14 @@ namespace monoos.src.Render
         private Settings settings;
 
         public Rectangle RollDicesRec;
+        public Rectangle BuyPropRec;
 
         public PlayerUIRender(Player player, Settings settings)
         {
             this.player = player;
             this.settings = settings;
             RollDicesRec = new(settings.ScreenWidth / 2 - 100, 850, 200, 100);
+            BuyPropRec = new(100, 850, 200, 100);
         }
 
         public void RenderMoney()
@@ -34,6 +36,13 @@ namespace monoos.src.Render
             Raylib.DrawRectangleRec(RollDicesRec, Color.LIGHTGRAY);
             Raylib.DrawRectangleLinesEx(RollDicesRec, 5, Color.RED);
             Raylib.DrawText($"ROLL DICES", (int)(RollDicesRec.X + 40), (int)(RollDicesRec.Y + RollDicesRec.Height / 2 - 10), 20, Color.RED);
+        }
+
+        public void RenderBuyRec()
+        {
+            Raylib.DrawRectangleRec(BuyPropRec, Color.LIGHTGRAY);
+            Raylib.DrawRectangleLinesEx(BuyPropRec, 5, Color.RED);
+            Raylib.DrawText($"BUY PROPERTY", (int)(BuyPropRec.X + 20), (int)(BuyPropRec.Y + BuyPropRec.Height / 2 - 10), 20, Color.RED);
         }
     }
 }

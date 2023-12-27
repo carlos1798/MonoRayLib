@@ -1,4 +1,5 @@
-﻿using monoos.src.Game.Interfaces;
+﻿using monoos.src.Game.EventLocations;
+using monoos.src.Game.Interfaces;
 using monoos.src.Render;
 using Raylib_cs;
 using System.Numerics;
@@ -37,6 +38,7 @@ namespace monoos.src.Game
         private Settings settings;
         private bool moving = false;
         private bool ActionPerformed = false;
+        private bool DicesRolled = false;
         public PlayerUIRender UIrender;
 
         public Color color;
@@ -78,6 +80,7 @@ namespace monoos.src.Game
             if (!this.render.isInTargetSquare() && this.isTurn)
             {
                 camera.Target = this.render.Position;
+                camera.Rotation = (float)this.position;
             }
         }
 
@@ -93,46 +96,59 @@ namespace monoos.src.Game
                 return false;
             }
 
-            if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), UIrender.RollDicesRec) && ActionPerformed == false)
+            if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), UIrender.RollDicesRec) && DicesRolled == false)
             {
                 dices.RollDices();
-                this.render.SetDiceResult(dices.DiceNumber1 + dices.DiceNumber2);
-                ActionPerformed = true;
+                //                this.render.SetDiceResult(dices.DiceNumber1 + dices.DiceNumber2);
+                this.render.SetDiceResult(2);
+                DicesRolled = true;
             }
 
-            if (isPlayerMoving() && ActionPerformed)
+            if (isPlayerMoving() && DicesRolled)
             {
                 this.followPlayer(ref camera);
                 return false;
             }
             else
             {
-                if (ActionPerformed)
+                if (!(ActionPerformed) && DicesRolled)
                 {
-                    game.setTurn();
-                    ActionPerformed = false;
-                    return true;
-                }
-            }
-            return false;
+                    var CurrentLocation = board.GetLocationBySquare(this.render.CurrentSquare );
 
-            //            switch (action)
-            //            {
-            //                case PlayerAction.BUY_PROPERTY:
-            //
-            //                    if (board.GetLocationBySquare(render.CurrentSquare) is PropertyLocation)
-            //                    {
-            //                        var Property = (PropertyLocation)board.GetLocationBySquare(render.CurrentSquare);
-            //                        if (Property.owner is null)
-            //                        {
-            //                            Console.WriteLine("comprable");
-            //                            Property.BuyProperty(this);
-            //                        }
-            //                    }; break;
-            //
-            //                default:
-            //                    break;
-            //            }
+                    if (CurrentLocation is EventLocation)
+                    {
+                        var Even = (EventLocation)CurrentLocation;
+                        Even.ExecuteEvent(this);
+                    }
+
+                    if (ActionPerformed && DicesRolled)
+                    {
+                        game.setTurn();
+                        ActionPerformed = false;
+                        DicesRolled = false;
+                        return true;
+                    }
+                }
+                return false;
+
+                //            switch (action)
+                //            {
+                //                case PlayerAction.BUY_PROPERTY:
+                //
+                //                    if (board.GetLocationBySquare(render.CurrentSquare) is PropertyLocation)
+                //                    {
+                //                        var Property = (PropertyLocation)board.GetLocationBySquare(render.CurrentSquare);
+                //                        if (Property.owner is null)
+                //                        {
+                //                            Console.WriteLine("comprable");
+                //                            Property.BuyProperty(this);
+                //                        }
+                //                    }; break;
+                //
+                //                default:
+                //                    break;
+                //            }
+            }
         }
     }
 }
