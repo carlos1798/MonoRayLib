@@ -68,10 +68,9 @@ public class MainRender
             Raylib.ClearBackground(Color.WHITE);
 
             board.render.Draw();
-
             board.RenderLocations();
+            br.renderAllBills(players, board.textures);
 
-            // br.renderAllBills(players, board.textures);
             mousePos = Raylib.GetMousePosition();
 
             Vector2 delta = Vector2.Subtract(prevMousePos, mousePos);
@@ -91,7 +90,6 @@ public class MainRender
 
             if (Raylib.IsKeyDown(KeyboardKey.KEY_Q)) camera.Rotation--;
             else if (Raylib.IsKeyDown(KeyboardKey.KEY_E)) camera.Rotation++;
-
             if (Raylib.IsKeyDown(KeyboardKey.KEY_A)) camera.Target.X -= cameraSpeed;
             if (Raylib.IsKeyDown(KeyboardKey.KEY_D)) camera.Target.X += cameraSpeed;
             if (Raylib.IsKeyDown(KeyboardKey.KEY_W)) camera.Target.Y -= cameraSpeed;
@@ -107,9 +105,9 @@ public class MainRender
             foreach (Player player in players)
             {
                 //Hay que hacer algo con esta mierda
-                foreach (Bill bill in player.wallet)
+                for (int i = player.wallet.Count-1; i >= 0; i--)
                 {
-                    br.HoldBill(bill, camera);
+                    br.HoldBill(player.wallet[i], camera, player);
                 }
 
                 if (firstTime)
@@ -136,7 +134,9 @@ public class MainRender
                 if (player.isTurn) Raylib.DrawText($"Current Player:{player.name}", 1200, 200, 20, Color.RED);
                 if (player.isTurn) Raylib.DrawText($"Current Square:{player.render.CurrentSquare}", 1200, 100, 20, Color.RED);
                 if (player.isTurn) Raylib.DrawText($"Dice  :{player.dices.DiceNumber1} Dice  : {player.dices.DiceNumber2}", 1200, 150, 20, Color.RED);
+                if (player.isTurn) player.UIrender.RenderRollDices();
             }
+
             Raylib.EndDrawing();
         }
 

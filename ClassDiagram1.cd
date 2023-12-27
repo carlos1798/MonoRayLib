@@ -31,7 +31,7 @@
   <Class Name="monoos.src.Game.Player" Collapsed="true">
     <Position X="13.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAgAgAAAAAAAAACIAAAAADGAACAIAAAAAIQEAA=</HashCode>
+      <HashCode>AAIwAAAgAgAEAAAAAAACIAAAAADGAACAIAAAAAIREAA=</HashCode>
       <FileName>src\Game\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -127,7 +127,7 @@
   <Class Name="monoos.src.Render.PlayerRender" Collapsed="true">
     <Position X="15.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAABEAAQCACBAAgAEAIAAMDAACAAEABIAQAAAgABAA=</HashCode>
+      <HashCode>AAAABEAAQCICBAAgAEAIAAMDAACAAEABIAQAAAoABAA=</HashCode>
       <FileName>src\Render\PlayerRender.cs</FileName>
     </TypeIdentifier>
   </Class>

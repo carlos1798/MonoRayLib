@@ -37,6 +37,7 @@ namespace monoos.src.Game
         private Settings settings;
         private bool moving = false;
         private bool ActionPerformed = false;
+        public PlayerUIRender UIrender;
 
         public Color color;
 
@@ -53,6 +54,7 @@ namespace monoos.src.Game
             camera = ConfigPlayerCam();
             dices = new(settings);
             this.color = color;
+            this.UIrender = new(this, settings);
         }
 
         public void SetPlayerCamera(ref Camera2D mainCam)
@@ -91,7 +93,7 @@ namespace monoos.src.Game
                 return false;
             }
 
-            if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
+            if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), UIrender.RollDicesRec) && ActionPerformed == false)
             {
                 dices.RollDices();
                 this.render.SetDiceResult(dices.DiceNumber1 + dices.DiceNumber2);
