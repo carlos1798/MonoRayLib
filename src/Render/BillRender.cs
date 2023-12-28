@@ -23,7 +23,14 @@ namespace monoos.src.Render
             {
                 foreach (Bill bill in p.wallet)
                 {
-                    renderBill(textures, bill, rotation);
+                    if (p.position == Player.PlayerPosition.BOTTOM || p.position == Player.PlayerPosition.TOP)
+                    {
+                        renderBill(textures, bill, 0);
+                    }
+                    else
+                    {
+                        renderBill(textures, bill, rotation);
+                    }
                 }
             }
         }
@@ -34,11 +41,13 @@ namespace monoos.src.Render
             int frameWidth = texture.Width;
             int frameHeight = texture.Height;
             Rectangle textureParms = new(0.0f, 0.0f, frameWidth, frameHeight);
-            Raylib.DrawTexturePro(texture, textureParms, bill.rec, new Vector2()
-            {
-                X = 0,
-                Y = 0
-            }, rotation, Color.WHITE);
+            //            Raylib.DrawTexturePro(texture, textureParms, bill.rec, new Vector2()
+            //            {
+            //                X = 0,
+            //                Y = 0
+            //            }, rotation, Color.WHITE);
+
+            Raylib.DrawTextureRec(texture, bill.rec, new Vector2() { X = bill.rec.X, Y = bill.rec.Y, }, Color.WHITE);
         }
 
         public void HoldBill(Bill bill, Camera2D camera, Player player)
@@ -101,17 +110,42 @@ namespace monoos.src.Render
             int deviation = 50;
             foreach (Player player in players)
             {
-                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.FIVE_HUNDRED, player, 100, 100));
-                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.ONE, player, 1, player.wallet.Last().position.Y + deviation));
-
-                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.FIVE, player, 500, 500));
-                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.FIVE, player, player.wallet.Last().position.X + 100, player.wallet.Last().position.Y + deviation));
-
-                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.TEN, player, 600, 600));
-                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.TEN, player, player.wallet.Last().position.X + 100, player.wallet.Last().position.Y + deviation));
-
-                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.TWENTY, player, 700, 600));
-                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.TWENTY, player, player.wallet.Last().position.X + 100, player.wallet.Last().position.Y + deviation));
+                player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.ONE, player, player.PlayerSpace.X, player.PlayerSpace.Y));
+                for (int i = 0; i < 5; i++)
+                {
+                    if (player.position == Player.PlayerPosition.BOTTOM)
+                    {
+                        player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.FIVE_HUNDRED, player, player.PlayerSpace.X, player.PlayerSpace.Y));
+                    }
+                    else if (player.position == Player.PlayerPosition.RIGHT)
+                    {
+                        player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.FIVE_HUNDRED, player, player.PlayerSpace.X, player.PlayerSpace.Y));
+                    }
+                    else if (player.position == Player.PlayerPosition.LEFT)
+                    {
+                        player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.FIVE_HUNDRED, player, player.PlayerSpace.X, player.PlayerSpace.Y));
+                    }
+                    else if (player.position == Player.PlayerPosition.TOP)
+                    {
+                        player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.FIVE_HUNDRED, player, player.PlayerSpace.X, player.PlayerSpace.Y));
+                    }
+                }
+                //                for (int i = 0; i < 5; i++)k
+                //                {
+                //                    player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.FIVE_HUNDRED, player, player.PlayerSpace.X, player.PlayerSpace.Y));
+                //                }
+                //                for (int i = 0; i < 5; i++)
+                //                {
+                //                    player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.FIVE_HUNDRED, player, player.PlayerSpace.X, player.PlayerSpace.Y));
+                //                }
+                //                for (int i = 0; i < 5; i++)
+                //                {
+                //                    player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.FIVE_HUNDRED, player, player.PlayerSpace.X, player.PlayerSpace.Y));
+                //                }
+                //                for (int i = 0; i < 5; i++)
+                //                {
+                //                    player.wallet.Add(new(Raylib.GetRandomValue(0, 1000), Bill.BillType.FIVE_HUNDRED, player, player.PlayerSpace.X, player.PlayerSpace.Y));
+                //                }
             }
         }
     }

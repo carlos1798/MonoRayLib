@@ -18,6 +18,8 @@ namespace monoos.src.Game
         public bool moveEndPoint = false;
         public Texture2D texture;
 
+        public Rectangle RotatedParams;
+
         public Bill(int id, BillType type, Player owner, float x, float y)
         {
             this.id = id;
@@ -25,6 +27,10 @@ namespace monoos.src.Game
             this.spriteName = getSpriteName(type);
             this.owner = owner;
             rec = new(x, y, 200f, 100f);
+            if (owner.position == Player.PlayerPosition.BOTTOM || owner.position == Player.PlayerPosition.TOP)
+            {
+                rec = new(rec.X, rec.Y, rec.Height, rec.Width);
+            }
         }
 
         private string? getSpriteName(BillType type)

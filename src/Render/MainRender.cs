@@ -34,6 +34,8 @@ public class MainRender
         dices = new(setting);
         players.Add(new("carlos", 1500, Player.PlayerPosition.BOTTOM, board, setting, Color.BLUE));
         players.Add(new("elDiablo", 1500, Player.PlayerPosition.RIGHT, board, setting, Color.RED));
+        players.Add(new("fullHouse", 1500, Player.PlayerPosition.LEFT, board, setting, Color.PINK));
+        players.Add(new("flush", 1500, Player.PlayerPosition.TOP, board, setting, Color.ORANGE));
 
         Raylib.SetConfigFlags(ConfigFlags.FLAG_MSAA_4X_HINT);
 
@@ -104,6 +106,8 @@ public class MainRender
 
             foreach (Player player in players)
             {
+                Raylib.DrawRectangleLinesEx(player.PlayerSpace, 5, player.color);
+
                 //Hay que hacer algo con esta mierda
                 for (int i = player.wallet.Count - 1; i >= 0; i--)
                 {

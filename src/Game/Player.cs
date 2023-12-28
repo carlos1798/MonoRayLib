@@ -1,5 +1,6 @@
 ﻿using monoos.src.Game.EventLocations;
 using monoos.src.Game.Interfaces;
+using monoos.src.Game.PropertiesTypes;
 using monoos.src.Render;
 using Raylib_cs;
 using System.Numerics;
@@ -40,7 +41,8 @@ namespace monoos.src.Game
         private bool ActionPerformed = false;
         private bool DicesRolled = false;
         public PlayerUIRender UIrender;
-
+        public Rectangle PlayerSpace;
+        public int PlayerSpaceSize = 700;
         public Color color;
 
         public Player(string name, double money, PlayerPosition position, Board board, Settings settings, Color color)
@@ -57,6 +59,31 @@ namespace monoos.src.Game
             dices = new(settings);
             this.color = color;
             this.UIrender = new(this, settings);
+            this.PlayerSpace = SetPlayerSpace();
+        }
+
+        private Rectangle SetPlayerSpace()
+        {
+            if (position == PlayerPosition.BOTTOM)
+            {
+                return new(board.render.mainBoard.x, board.render.mainBoard.y + board.render.mainBoard.height, board.render.mainBoard.width, PlayerSpaceSize);
+            }
+            else if (position == PlayerPosition.LEFT)
+            {
+                return new(board.render.mainBoard.x - PlayerSpaceSize, board.render.mainBoard.y, PlayerSpaceSize, board.render.mainBoard.height);
+            }
+            else if (position == PlayerPosition.TOP)
+            {
+                return new(board.render.mainBoard.x, board.render.mainBoard.y - PlayerSpaceSize, board.render.mainBoard.width, PlayerSpaceSize);
+            }
+            else if (position == PlayerPosition.RIGHT)
+            {
+                return new(board.render.mainBoard.x + board.render.mainBoard.width, board.render.mainBoard.y, PlayerSpaceSize, board.render.mainBoard.height);
+            }
+            else
+            {
+                return new(0, 0, 0, 0);
+            }
         }
 
         public void SetPlayerCamera(ref Camera2D mainCam)
@@ -99,8 +126,8 @@ namespace monoos.src.Game
             if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && Raylib.CheckCollisionPointRec(Raylib.GetMousePosition(), UIrender.RollDicesRec) && DicesRolled == false)
             {
                 dices.RollDices();
-                //                this.render.SetDiceResult(dices.DiceNumber1 + dices.DiceNumber2);
-                this.render.SetDiceResult(2);
+                this.render.SetDiceResult(dices.DiceNumber1 + dices.DiceNumber2);
+                //this.render.SetDiceResult(2);
                 DicesRolled = true;
             }
 
@@ -113,12 +140,17 @@ namespace monoos.src.Game
             {
                 if (!(ActionPerformed) && DicesRolled)
                 {
-                    var CurrentLocation = board.GetLocationBySquare(this.render.CurrentSquare );
+                    var CurrentLocation = board.GetLocationBySquare(this.render.CurrentSquare);
 
                     if (CurrentLocation is EventLocation)
                     {
                         var Even = (EventLocation)CurrentLocation;
                         Even.ExecuteEvent(this);
+                    }
+                    else if (CurrentLocation is PropertyLocation)
+                    {
+                        var prop = (PropertyLocation)CurrentLocation;
+                        prop.Execute(this);
                     }
 
                     if (ActionPerformed && DicesRolled)
@@ -130,24 +162,6 @@ namespace monoos.src.Game
                     }
                 }
                 return false;
-
-                //            switch (action)
-                //            {
-                //                case PlayerAction.BUY_PROPERTY:
-                //
-                //                    if (board.GetLocationBySquare(render.CurrentSquare) is PropertyLocation)
-                //                    {
-                //                        var Property = (PropertyLocation)board.GetLocationBySquare(render.CurrentSquare);
-                //                        if (Property.owner is null)
-                //                        {
-                //                            Console.WriteLine("comprable");
-                //                            Property.BuyProperty(this);
-                //                        }
-                //                    }; break;
-                //
-                //                default:
-                //                    break;
-                //            }
             }
         }
     }
