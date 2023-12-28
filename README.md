@@ -1,2 +1,3 @@
 A capitalist game replica in RAYLIB
-![image](https://github.com/carlos1798/MonoRayLib/assets/24571992/3e65fe2d-a3d9-466b-947b-56b6606636c1)
+![image](https://github.com/carlos1798/MonoRayLib/assets/24571992/325b4fe5-6dac-4b3d-8449-f3cf0ecdb70d)
+
