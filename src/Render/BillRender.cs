@@ -76,18 +76,9 @@ namespace monoos.src.Render
                 }
 
                 bill.moveStartPoint = true;
-            }
-            else if (Raylib.CheckCollisionPointRec(mousePosition, bill.rec) && Raylib.IsMouseButtonDown(MouseButton.MOUSE_BUTTON_LEFT))
-            {
-                if (holdedBill is null)
-                {
-                    holdedBill = bill;
-                    player.wallet.Remove(bill);
-                    player.wallet.Add(bill);
-                }
-
                 bill.moveEndPoint = true;
             }
+
             if (bill.moveStartPoint)
             {
                 bill.startPoint = mousePosition;
@@ -96,6 +87,7 @@ namespace monoos.src.Render
                     bill.moveStartPoint = false;
                     holdedBill = null;
                 }
+
                 bill.rec.X = bill.startPoint.X;
                 bill.rec.Y = bill.startPoint.Y;
             }
@@ -113,6 +105,7 @@ namespace monoos.src.Render
             }
         }
 
+        //Es como fuckk no puedo durar mucho aqui sabes
         public void SpawnStartingBills(List<Player> players)
         {
             int deviation = 0;
