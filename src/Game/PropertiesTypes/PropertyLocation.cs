@@ -1,4 +1,6 @@
-﻿namespace monoos.src.Game.PropertiesTypes
+﻿using monoos.src.Render;
+
+namespace monoos.src.Game.PropertiesTypes
 {
     public abstract class PropertyLocation : Location
     {

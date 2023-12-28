@@ -16,6 +16,7 @@
   <ItemGroup>
     <Folder Include="src\Game\NewFolder1\" />
     <Folder Include="src\Game\NewFolder\" />
+    <Folder Include="src\Render\CardRenders\" />
   </ItemGroup>
 
   <ItemGroup>
